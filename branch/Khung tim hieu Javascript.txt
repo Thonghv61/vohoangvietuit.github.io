@@ -1,0 +1,65 @@
+Tham khảo:
+https://techtalk.vn/top-javascript-frameworks-va-topics-nen-tim-hieu-trong-nam-2017.html
+
+---------------------------------------------------------------------------------------------------------
+1. PHP team:
+GD: https://drive.google.com/drive/folders/0Byu3oIpLWGSANHEtRFptMUl1aDQ?usp=sharing
+
+Tìm hiểu và làm bài thu hoạch về Configs.
+
+Nội dung:
+- Làm demo setup môi trường Develop và Production (viết log, các contants, link, ...).
+- Hướng dẫn và chia sẻ cách debug (web, mobile, dùng F12 hoặc ghi console log, ghi file).
+- JS performance
+- Mode maintain & chia sẻ một số kinh nghiệm đã gặp.
+
+---------------------------------------------------------------------------------------------------------
+2. Java team
+GD: https://drive.google.com/drive/folders/0Byu3oIpLWGSAZnkwWkpnMUV3ems?usp=sharing
+
+Tìm hiểu và làm bài thu hoạch về Structure & Syntax.
+Và viết demo một dạng cấu trúc dự án JS, với các phần chung, riêng. Có thể phát triển lâu dài
+
+Nội dung:
+- Comments (đúng cách).
+- Identifiers (Variable names, function names, labels).
+- Nơi đặt JS code trong dự án.
+- Các event handle quan trọng và thường dùng của DOM trong dự án.
+- (Chia sẻ một số kinh nghiệm đã gặp).
+
+Link tham khảo:
+- https://www.codehelp.co.uk/html/jscript1.html
+
+---------------------------------------------------------------------------------------------------------
+3. Front-end team
+GD: https://drive.google.com/drive/folders/0Byu3oIpLWGSAeGR1OFBrQmRtRVk?usp=sharing
+Tìm hiểu và làm bài thu hoạch về Organizing Javascript.
+
+Nội dung - lựa chọn một số (cảm thấy hữu ích) trong các phần sau để giới thiệu:
+- Module pattern
+- And another pattern
+
+Link tham khảo: 
+- https://egghead.io/technologies/js
+
+
+---------------------------------------------------------------------------------------------------------
+3. Ruby & Frehser team
+GD: https://drive.google.com/drive/folders/0Byu3oIpLWGSARTU3MEt2NnNHTzQ?usp=sharing
+
+Tìm hiểu và làm bài thu hoạch về JS function & jQuery library.
+
+Nội dung:
+- Các hàm xử lý string, array tiện dụng trong dự án.
+- Một số thao tác thường gặp khi sử dụng JQuery trong dự án (selector, event, animation, ajax, ...)
+- Promise
+- Jquery Plugins
+- (Chia sẻ một số kinh nghiệm đã gặp).
+
+Link tham khảo:
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
+- http://api.jquery.com/
+
+
+
+
