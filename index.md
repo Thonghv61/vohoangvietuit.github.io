@@ -1,15 +1,20 @@
 # HTML - CSS
-  - Bai tap 1
-  - Bai tap 2
+* Bai tap 1
+* Bai tap 2
+
 # Javascript
-  - Bai tap 
+* Bai tap 
+
 # HTML5 Canvas
-  - Bai tap 
+* Bai tap 
+
 # Responsive
-  - Bai tap 
+* Bai tap 
+
 # Jquery
-  - Bai tap
+* Bai tap
+
 # Demo
-  - [webthunghiem](https://vohoangvietuit.github.io/webthunghiem/)
+  * [webthunghiem](https://vohoangvietuit.github.io/webthunghiem/)
 
 Author - Võ Hoàng Việt
