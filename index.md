@@ -1,7 +1,10 @@
 # HTML - CSS
-* Bai tap 1
-* Bai tap 2
-
+* [Lý thuyết 1](https://vohoangvietuit.github.io/LyThuyet1/)
+* Lý thuyết 2
+* Lý thuyết 3
+* Thực hành 1
+* Thực hành 2
+* Thực hành 3
 # Javascript
 * Bai tap 
 
