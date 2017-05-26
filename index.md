@@ -17,7 +17,4 @@
 # Jquery
 * Bai tap
 
-# Demo
-  * [webthunghiem](https://vohoangvietuit.github.io/webthunghiem/)
-
 Author - Võ Hoàng Việt
