@@ -3,7 +3,7 @@
 * [Lý thuyết 2](https://vohoangvietuit.github.io/LyThuyet2/)
 * Lý thuyết 3
 * [Thực hành 1](https://vohoangvietuit.github.io/ThucHanh1/)
-* Thực hành 2
+* [Thực hành 2](https://vohoangvietuit.github.io/ThucHanh2/)
 * Thực hành 3
 # Javascript
 * Bai tap 
