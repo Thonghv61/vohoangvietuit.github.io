@@ -1,0 +1,143 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+#footer a {
+    color: #505959;
+}
+
+div#footer {margin-left: 57px;padding: 20px;}
+
+a.web-info {
+    text-decoration: none;
+    color: white;
+    display: block;
+    margin: 15px 20px;
+}
+
+a.web-info:before {
+    content: url(images/arr_1.gif);
+    padding: 5px;
+}
+
+#content p {margin-left: 20px;padding-bottom: 20px;border-bottom: 1px dotted #323232;}
+
+#content input[type="text"] {
+    background: #2c2c2c;
+    border: none;
+    padding: 6px;
+    margin: 15px 20px;
+}
+
+.content-box {
+    margin-bottom: 50px;
+}
+
+div#content {
+    margin-left: 15px;
+    margin-top: 50px;
+}
+
+.box-2 li {
+    margin-left: 26px;
+}
+
+.box-2 li:before {
+    content: "";
+    border-color: transparent #707070;
+    border-style: solid;
+    border-width: 0.35em 0 0.35em 0.45em;
+    display: block;
+    height: 0;
+    width: 0;
+    left: -1em;
+    top: 0.9em;
+    position: relative;
+}
+
+.box-2 li a {
+    color: #707070;
+    line-height: 18px;
+}
+
+.box-2 ul {
+    list-style-type: none;
+}
+
+.box-2 {
+    border-top: 1px solid #2c2c2c;
+    padding-top: 30px;
+}
+
+.box-1 {
+    border-top: 1px solid #7e7e7e;
+    padding-top: 30px;
+    padding-bottom: 70px;
+}
+
+div#sidebar {
+    box-sizing: border-box;
+    background: #1f1f1f;
+    padding: 50px 35px;
+    height: 450px;
+}
+
+div#main {
+    margin-top: 114px;
+    margin-left: 70px;
+    width: 670px;
+    display: flex;
+    border-bottom: 1px dotted #323232;
+}
+
+.nav li a {
+    color: white;
+    font-size: 22px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.nav li {
+    display: inline-block;
+    margin-left: 1px;
+}
+
+.nav ul {
+    list-style: none;
+}
+
+.nav {
+    position: absolute;
+    bottom: -57px;
+    left: 68px;
+}
+
+.siteTtl h2 {
+    color: black;
+    font-size: 40px;
+    margin-top: 35px;
+    margin-left: 100px;
+}
+
+.siteTtl {
+    background: url(images/logo.jpg) no-repeat;
+    width: 353px;
+    height: 116px;
+    position: absolute;
+    top: 53px;
+    left: 50px;
+}
+
+div#header {
+    background: url(images/fill_header.jpg);
+    height: 254px;
+    position: relative;
+    margin-bottom: auto;
+}
+
+div#container {
+    background: #121212;
+    color: #505959;
+}
