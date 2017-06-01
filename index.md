@@ -4,7 +4,7 @@
 * [Lý thuyết 3](https://vohoangvietuit.github.io/LyThuyet3/)
 * [Thực hành 1](https://vohoangvietuit.github.io/ThucHanh1/)
 * [Thực hành 2](https://vohoangvietuit.github.io/ThucHanh2/)
-* Thực hành 3
+* [Thực hành 3](https://vohoangvietuit.github.io/ThucHanh3/)
 # Javascript
 * Slide ảnh
 * Calendar
