@@ -1,101 +1,113 @@
-﻿*{
+* {
   margin: 0;
   padding: 0;
 }
 
 .comment h4 {
-    text-align: center;
+  text-align: center;
 }
 
 .comment {
-    padding: 20px 6px;
+  padding: 20px 6px;
 }
 
 .post-info a {
-    text-decoration: none;
-    color: #5b98d1;
+  -webkit-text-decoration: none;
+  -moz-text-decoration: none;
+  -ms-text-decoration: none;
+  -o-text-decoration: none;
+  text-decoration: none;
+  color: #5b98d1;
 }
 
 span.post-info {
-    margin-left: 16%;
-    display: block;
-    padding: 1px 0;
+  margin-left: 16%;
+  display: block;
+  padding: 1px 0;
 }
 
-.post {
-}
+
 
 .post-contain {
-    background: #ECECEC;
-    padding: 4px 6px;
+  background: #ECECEC;
+  padding: 4px 6px;
 }
 
 .post-contain:after {
-    position: absolute;
-    content: "";
-    width: 0;
-    height: 0;
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-    border-top: 15px solid #ECECEC;
-    top: 100%;
-    left: 10%;
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 15px solid #ECECEC;
+  top: 100%;
+  left: 10%;
 }
 
 .post-contain {
-    position: relative;
+  position: relative;
 }
 
 .facts .title {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .facts ul {
-    list-style: none;
-    margin-left: 60px;
+  list-style: none;
+  margin-left: 60px;
 }
 
 .facts ul li {
-    padding: 4px 0;
+  padding: 4px 0;
 }
 
 .facts ul li:before {
-    content: url('images/star.png');
-    margin-right: 4px;
+  content: url('images/star.png');
+  margin-right: 4px;
 }
 
-.info {margin-left: 15px;height: 100px;width: 100%;overflow: auto;}
+.info {
+  margin-left: 15px;
+  height: 100px;
+  width: 100%;
+  overflow: auto;
+}
 
 .info ul {
-    list-style: none;
+  list-style: none;
 }
 
 .player-info img {
-    width: 100px;
-    height: 90px;
+  width: 100px;
+  height: 90px;
 }
 
 .player-info {
-    display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
 }
 
 .profile .title {
-    background: url(images/title_bg.gif) repeat-x;
-    height: 25px;
-    line-height: 25px;
+  background: url(images/title_bg.gif) repeat-x;
+  height: 25px;
+  line-height: 25px;
 }
 
 .title span {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 div#container {
-    width: 500px;
-    margin: 0 auto;
-    border: 1px solid #0033FF;
+  width: 500px;
+  margin: 0 auto;
+  border: 1px solid #0033FF;
 }
-body{
+
+body {
   font-family: Georgia,"Times New Roman", Times, serif;
 }
 
-.post {}
