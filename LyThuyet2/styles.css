@@ -99,15 +99,17 @@ a.more-info:before {
 .topic-right {float: left;background: #232227;width: 196px;height: 300px;padding: 50px 19px 20px 40px;margin-left: 30px;}
 
 .topic-left {
-    width: 45%;
+    width: 450px;
     float: left;
 }
 
 div#container {
     background: #121214;
     color: #797782;
+    display: flex;
     padding: 26px 25px;
-    overflow: auto;
+    margin: 0 auto;
+    width: 1000px;
 }
 body{
 	font-family: arial;
