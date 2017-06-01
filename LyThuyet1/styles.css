@@ -3,6 +3,11 @@
   padding: 0;
 }
 
+.post {
+    margin-top: 40px;
+    padding: 0 4px;
+}
+
 .comment h4 {
   text-align: center;
 }
