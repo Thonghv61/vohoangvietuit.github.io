@@ -6,7 +6,10 @@
 * [Thực hành 2](https://vohoangvietuit.github.io/ThucHanh2/)
 * Thực hành 3
 # Javascript
-* Bai tap 
+* Slide ảnh
+* Calendar
+* Form Ajax
+* Game Monter
 
 # HTML5 Canvas
 * Bai tap 
