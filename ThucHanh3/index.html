@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Thuc hanh 3</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<div id="container">
+		<div id="content">
+			<div class="news">
+				<div class="daily-news">
+					<div class="box">
+						<div class="title-new">
+							<h2>DAILY CELEBRITY GOSSIP</h2>
+						</div>
+						<div class="image-new">
+							<img src="images/news_1.png" alt="news_1">
+							<img src="images/title_1.jpg" alt="title_1">
+							<a href="#">more</a>
+						</div>
+						<h4>RUSSEL CROWE + MORE ...</h4>
+						<p>RUSSEL Crowe's son to marry Keith & Nicole's daugher, plus Renee Zellweger reveals her breast cancer scare</p>
+					</div>
+
+					<div class="box">
+						<div class="title-new">
+							<h2>DAILY CELEBRITY PICS</h2>
+						</div>
+						<div class="image-new">
+							<img src="images/news_2.png" alt="news_2">
+							<img src="images/title_2.jpg" alt="title_2">
+							<a href="#">more</a>
+						</div>
+						<h4>BECKHAMS, CLAUDIA SCHIFFER</h4>
+						<p>VICTORIA and David Beckham dine out in NY, as top models Claudia Schiffer and Eva Herzigova hit the shops in Milan.</p>
+					</div>
+				</div>
+				<div class="movie-news">
+					<div class="box box-news">
+						<div class="title-new">
+							<h2>TOP 3 MOVIE TRAILERS</h2>
+						</div>
+						<button class="accordion">The House Bunny (M)</button>
+						<div class="panel">
+							<img src="images/m_bunny.jpg" alt="bunny girl">
+							<p>When Playboy bunny Shelly is tossed out of the mansion, she falls in with the sorority girls form Zeta Alpha Zeta.</p>
+						</div>
+						<button class="accordion">Eagle Eye (M)</button>
+						<div class="panel">
+							<img src="images/m_bunny.jpg" alt="bunny girl">
+							<p>When Playboy bunny Shelly is tossed out of the mansion, she falls in with the sorority girls form Zeta Alpha Zeta.</p>
+						</div>
+						<button class="accordion">Journey To The Centre Of The Earth (PG)</button>
+						<div class="panel">
+							<img src="images/m_bunny.jpg" alt="bunny girl">
+							<p>When Playboy bunny Shelly is tossed out of the mansion, she falls in with the sorority girls form Zeta Alpha Zeta.</p>
+						</div>
+						<div class="now-showing">
+							<b>Now Showing</b>
+							<select name="movie" id="movie">
+								<option value="Select Movie">Select Movie</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="box box-movie">
+						<div class="title-new">
+							<h2>MOVIE REVIEWS</h2>
+						</div>
+						<div class="list-movie">
+							<h3 class="start-3">Eagle Eye</h3>
+							<div class="image-movie">
+								<img src="images/m_eagle.jpg" alt="m_eagle"> <br>
+								<b>View Trailer</b>
+							</div>
+							<p>SHIA LaBeouf hits the ground running in Eagle Eye, an against the clock thriller with a timely technological t...</p>							
+						</div>
+						<div class="list-movie">
+							<h3 class="start-2">Houses Bunny</h3>
+							<div class="image-movie">
+								<img src="images/m_house.jpg" alt="house"> <br>
+								<b>View Trailer</b>
+							</div>
+							<p>IF YOU left Legally Blonde and Revenge Of The Nerds DVD in a darkened room for long enough, something like The House Bun...</p>							
+						</div>
+						<div class="local-list">
+							<b>Local Cinema listings</b>
+							<span>+ MORE MOVIES</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="search">
+				<img src="images/search.jpg" alt="search">
+				<input type="text" name="search_name">
+				<input type="submit" value="SEARCH">
+			</div>
+		</div>
+		
+		<div id="footer">
+			<div class="footer-news">
+				<img src="images/f_phone.png" alt="">
+				<img src="images/f_feed.png" alt="">
+				<img src="images/f_letter.png" alt="">
+				<img src="images/f_chat.png" alt="">
+				<img src="images/f_photo.jpg" alt="">
+			</div>
+			<div class="footer-link">
+				<div class="link-web">
+					<a href="#">Help</a> | <a href="#">Contact Us</a> | <a href="#">Advertise with Us</a> | <a href="#">Job Opportunities</a> | <a href="#">Term & Conditions</a> | <a href="#">Privacy Policy</a> |  <a href="#">Accessibility</a> | <a href="#">Sitemap</a> | <a href="#">News Headlines from Our Partners</a>
+					<a class="to-top" href="#" onclick="topFunction()">Back to top</a>
+				</div>
+				<div class="copyright">
+					Copyright 2008 News Limited. All times AEST (GMT +10)
+				</div>
+			</div>
+		</div>
+	</div>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].onclick = function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight){
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = 10 + panel.scrollHeight + "px";
+    } 
+  };
+}
+
+function topFunction() {
+    document.body.scrollTop = 0; // For Chrome, Safari and Opera 
+    document.documentElement.scrollTop = 0; // For IE and Firefox
+}
+</script>
+</body>
+</html>

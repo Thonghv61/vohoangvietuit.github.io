@@ -1,0 +1,255 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+a.to-top {
+    float: right;
+}
+#search input[type="submit"] {
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    background: #a8407d;
+    border: none;
+    border-radius: 2px;
+    padding: 3px;
+}
+
+#search input[type="text"] {
+    margin-left: 15px;
+    font-size: 16px;
+    width: 140px;
+}
+
+div#search {
+}
+
+.local-list {
+    padding: 10px;
+}
+
+.local-list b {
+    color: #2092c5;
+    font-size: 12px;
+}
+
+.local-list b:before {
+    content: url(images/icon_2.jpg);
+    float: left;
+}
+
+
+.copyright {
+    color: #398fda;
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.link-web a {
+    font-size: 12px;
+    text-decoration: none;
+    color: #398fda;
+}
+
+.footer-link {
+    background: white;
+    color: #2196F3;
+    padding: 10px;
+}
+
+.footer-news img {
+    margin-right: 90px;
+}
+
+.footer-news {
+    background: #292728;
+    padding: 20px 0;
+}
+
+div#footer {
+    text-align: center;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+span {
+    font-size: 12px;
+    float: right;
+}
+
+.list-movie b {
+    font-size: 12px;
+}
+
+.list-movie b:before {
+    content: url(images/icon_1.png);
+    float: left;
+}
+
+.image-movie {
+    float: left;
+}
+
+.list-movie h3 {
+    color: #529bb4;
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+h3.start-2 {
+    background: url(images/start_1.png) no-repeat right;
+}
+
+h3.start-3 {
+    background: url(images/start_2.png) no-repeat right;
+}
+
+.list-movie {
+    padding: 8px;
+    overflow: auto;
+    border-bottom: 1px dotted #a4a4a4;
+}
+
+.box.box-movie {
+    background: white;
+}
+
+.now-showing select {
+    width: 70%;
+}
+
+.now-showing b {
+    font-size: 12px;
+}
+
+.now-showing b:before {
+    content: url(images/now-showing-icon.gif);
+    padding-right: 4px;
+    float: left;
+}
+
+.now-showing {
+    padding: 5px 8px;
+}
+
+.panel {
+    background: white;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0px 10px;
+    max-height: 0;
+    overflow: hidden;
+    -webkit-transition: max-height 0.2s ease-out;
+    transition: max-height 0.2s ease-out;
+}
+
+button.accordion {
+    color: #0189bb;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: left;
+    padding-left: 6px;
+    width: 100%;
+}
+
+button.accordion:after {
+    content: '\002B';
+    color: #0189bb;
+    float: right;
+    font-weight: bold;
+    margin-right: 6px;
+}
+
+button.accordion.active:after {
+    content: '\2212';
+}
+
+.movie-news {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 10px;
+}
+
+.box p {
+    font-size: 15px;
+    padding: 5px 10px;
+}
+
+.box h4 {
+    font-size: 16px;
+    padding: 0px 10px;
+}
+
+.image-new a {
+    color: black;
+    font-weight: bold;
+    font-size: 14px;
+    float: right;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.image-new a:after {
+    content: url(images/start.jpg);
+    padding: 2px;
+}
+
+.image-new img:first-child {
+    width: 100%;
+    height: 175px;
+}
+
+.image-new {padding: 10px;}
+
+.title-new h2 {
+    background: url(images/h2-confidential-heading-bg.gif);
+    border-bottom: 1px dashed;
+    color: white;
+    font-size: 20px;
+    padding-left: 10px;
+}
+
+.movie-news .title-new h2 {
+    background: url(images/h2-top-movie-trailers-bg.gif);
+    padding-left: 10px;
+}
+
+.title-new {
+}
+
+.box {
+}
+
+.box-news {background: white;margin-right: 15px;}
+
+.daily-news {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    background: #ffffff url(images/confidential-logo.gif) no-repeat bottom left;
+    padding-bottom: 35px;
+}
+
+.news {
+    padding: 12px;
+    width: 85%;
+}
+
+div#content {
+    background: #292728;
+    border-bottom: 1px dashed white;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 1200px;
+    padding: 10px 0;
+    margin: 0 auto;
+}
+
+div#container {
+    background: black;
+}
