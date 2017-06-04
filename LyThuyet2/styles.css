@@ -17,7 +17,7 @@ ul {
   list-style: none;
 }
 
-li {
+li a{
   color: #9494a0;
   -webkit-text-decoration: underline;
   -moz-text-decoration: underline;
