@@ -1,0 +1,87 @@
+/* 
+Author: Vo Hoang Viet
+Project: Slide Image 
+ */
+*{box-sizing: border-box;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;}
+
+.fade {
+    animation: fade 2s;
+}
+
+@keyframes fade{
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+.active, .dot:hover {
+  background-color: #717171 !important;
+}
+
+.dot {
+    background-color: #cbcbcb;
+    border-radius: 50%;
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    margin: 5px 4px;
+    cursor: pointer;
+    transition: all 0.7s ease;
+}
+
+.dot:hover {
+    background-color: #4f4f4f;
+}
+
+.numbertext {
+    color: white;
+    position: absolute;
+    padding: 8px 12px;
+    top: 0;
+}
+
+.text {
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4px 10px;
+    width: 30%;
+    text-align: center;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 14px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    transition: all 0.6s ease;
+}
+
+.prev:hover, .next:hover {
+    background: rgba(0, 0, 0, 0.57);
+}
+
+.next {
+    right: 0;
+}
+
+.mySlides {
+    /* display: none; */
+}
+
+.mySlides img {
+    width: 100%;
+}
+
+.slideshow-container {
+    max-width: 500px;
+    position: relative;
+    margin: 0 auto;
+}
