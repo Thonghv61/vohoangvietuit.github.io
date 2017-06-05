@@ -6,7 +6,7 @@
 * [Thực hành 2](https://vohoangvietuit.github.io/ThucHanh2/)
 * [Thực hành 3](https://vohoangvietuit.github.io/ThucHanh3/)
 # Javascript
-* Slide ảnh
+* [Slide ảnh](https://vohoangvietuit.github.io/Slide-image/)
 * Calendar
 * Form Ajax
 * Game Monter
