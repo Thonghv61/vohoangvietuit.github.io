@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Form Ajax</title>
+	<link rel="stylesheet" href="styles/calendar-style.css">
+	<link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+	<form class="form-inline" onsubmit="return submitFormAjax()">
+	
+		<div class="form-group">
+			<label class="sr-only">Username</label>
+			<input type="text" class="input-text" id="username">
+			<span id="user_error"></span>
+		</div>
+		<div class="form-group">
+			<label class="sr-only">Password</label>
+			<input type="text" class="input-text" id="password">
+			<span id="pass_error"></span>
+		</div>
+		<div class="form-group">
+			<label class="sr-only">Email</label>
+			<input type="text" class="input-text" id="email">
+			<span id="email_error"></span>
+		</div>
+		<div class="form-group">
+			<label class="sr-only">Birthday</label>
+			<input type="text" class="input-text" id="datepicker">
+			<span id="birth_error"></span>
+		</div>
+	
+		<button type="submit" class="btn-submit btn-primary">Submit</button>
+		<button type="reset" class="btn-primary" onclick="resetForm()">Refresh</button>
+	</form>
+
+	<!-- Javascript -->
+	<script src="javascript/calendar-js.js"></script>
+	<script src="javascript/main.js"></script>	
+</body>
+</html>
