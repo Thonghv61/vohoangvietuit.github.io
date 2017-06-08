@@ -1,5 +1,6 @@
-function submitFormAjax(){
-	if(checkUsername()&&checkPass()&&checkEmail()&&checkBirthday()){
+function submitFormAjax() {
+	//CHECK INPUT VALIDATE IF VALIDATE RETURN AJAX
+	if (checkUsername() && checkPass() && checkEmail() && checkBirthday()) {
 		console.log("submit");
 		var uservalue = document.getElementById("username").value;
 		//var pass = document.getElementById("password");
@@ -15,7 +16,7 @@ function submitFormAjax(){
 			if (this.readyState == 4 && this.status == 200) {
 				console.log("SUCCESS" + this.responseText);
 
-			}else{
+			} else {
 				console.log("Http error " + this.status + ":" + this.statusText);
 			}
 		};
@@ -25,10 +26,11 @@ function submitFormAjax(){
 	return false;
 }
 
-function checkUsername(){
+//CHECK USERNAME
+function checkUsername() {
 	var usernameRegex = new RegExp("^[A-Za-z0-9]+$");
 	var username = document.getElementById("username");
-	if(username.value.length < 8){
+	if (username.value.length < 8) {
 		document.getElementById("user_error").innerHTML = "Username length min 8 letter";
 		return false;
 	}
@@ -40,9 +42,10 @@ function checkUsername(){
 	return false;
 }
 
-function checkPass(){
+//CHECK PASSWORD
+function checkPass() {
 	var pass = document.getElementById("password");
-	if (pass.value.length >=8) {
+	if (pass.value.length >= 8) {
 		document.getElementById("pass_error").innerHTML = "";
 		return true;
 	}
@@ -50,7 +53,8 @@ function checkPass(){
 	return false;
 }
 
-function checkEmail(){
+//CHECK EMAIL
+function checkEmail() {
 	var emailRegex = new RegExp("^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$");
 	var email = document.getElementById("email");
 	if (emailRegex.test(email.value)) {
@@ -60,7 +64,9 @@ function checkEmail(){
 	document.getElementById("email_error").innerHTML = "Email wrong format";
 	return false;
 }
-function checkBirthday(){
+
+//CHECK BIRTHDAY
+function checkBirthday() {
 	var birthRegex = new RegExp("^(?:(?:31(\\/|-|\\.)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\\/|-|\\.)(?:0?[1,3-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:29(\\/|-|\\.)0?2\\3(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\\d|2[0-8])(\\/|-|\\.)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$");
 	var birth = document.getElementById("datepicker");
 	if (birthRegex.test(birth.value)) {
@@ -71,6 +77,7 @@ function checkBirthday(){
 	return false;
 }
 
+//RESET FORM
 function resetForm() {
 	document.getElementById("username").value = "";
 	document.getElementById("password").value = "";
@@ -83,6 +90,7 @@ function resetForm() {
 	document.getElementById("birth_error").innerHTML = "";
 }
 
+//FOR AJAX
 function GetXmlHttpObject() {
 	var xmlHttp = null;
 	try {
