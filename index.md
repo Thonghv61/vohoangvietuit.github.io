@@ -10,14 +10,15 @@
 * [Calendar](https://vohoangvietuit.github.io/Calendar/)
 * [Form Ajax](https://vohoangvietuit.github.io/FormAjax)
 * [Game Monter](https://vohoangvietuit.github.io/GameMonster)
-
+# Jquery
+* [Slide ảnh](https://vohoangvietuit.github.io/Jquery/Slide-image-Jquery/)
+* [Calendar](https://vohoangvietuit.github.io/Jquery/Calendar-Jquery/)
+* [Form Ajax]
+* [Game Monter]
 # HTML5 Canvas
 * Bai tap 
 
 # Responsive
 * Bai tap 
-
-# Jquery
-* Bai tap
 
 Author - Võ Hoàng Việt
