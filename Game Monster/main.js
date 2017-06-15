@@ -1,19 +1,26 @@
-//Khởi tạo Main Canvas
+//Main Canvas
 var containCanvas = document.getElementById("containCanvas");
 var ctx = containCanvas.getContext("2d");
-//khởi tạo Menu canvas
+//Menu canvas
 var menuCanvas = document.getElementById("menuCanvas");
 ctxMenu = menuCanvas.getContext("2d");
 
 const FPS = 60;
-const TICKS = 1000 / FPS; //frame per secon
-var speedArr = [ 2, 4, 6, 10]; //tốc độ
+//frame per second
+const TICKS = 1000 / FPS;
 
-var score = 100; //điểm khởi đầu
+//speed monster
+var speedArr = [ 2, 4, 6, 10]; 
 
-var running = true; //status game
-var heart = 3; // mạng
-var end = false; //kết thúc
+//score begin
+var score = 100; 
+
+//status game
+var running = true;
+
+//heart
+var heart = 3;
+var end = false; 
 var highScore = 0; 
 var level = 0; 
 var speed = speedArr[0]; 
@@ -26,30 +33,33 @@ var w = window;
 requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame || w.msRequestAnimationFrame || w.mozRequestAnimationFrame;
 var lastUpdateTime = Date.now();
 
-//Khới tạo High Score Session Storage
+//Init High Score Session Storage
 if (sessionStorage.getItem("highscore") == null) {
 	sessionStorage.setItem("highscore", 0);
 } else {
 	highScore = sessionStorage.getItem("highscore");
 }
 
-//TẠO MONSTER CLASS
+/**
+ * Class Monster
+ * 
+ */
 function Monster(initX, initY, x, y, toX, toY, initToX, initToY, die, dieX, dieY, visible) {
-	this.initX   = initX;   //vị      trí x    mặc  định
-	this.initY   = initY;   //vị      trí y    mặc  định
-	this.x       = x;       //vị      trí x    hiện tại
-	this.y       = y;       //vị      trí y    hiện tại
-	this.toX     = toX;     //chạy    tới vị   trí  x
-	this.toY     = toY;     //chạy    tới vị   trí  y
-	this.initToX = initToX; //chạy    tới vị   trí  x    mặc định
-	this.initToY = initToY; //chạy    tới vị   trí  y    mặc định
-	this.die     = die;     //boolean
-	this.dieX    = dieX;    //vị      trí x    khi  chết
-	this.dieY    = dieY;    //vị      trí y    khi  chết
-	this.visible = visible; //boolean
+	this.initX   = initX;   //position x default
+	this.initY   = initY;   //position y default
+	this.x       = x;       //position x current
+	this.y       = y;       //position y current
+	this.toX     = toX;     //move to position x
+	this.toY     = toY;     //move to position y
+	this.initToX = initToX; //move to position x default
+	this.initToY = initToY; //move to position y default
+	this.die     = die;     //boolean die
+	this.dieX    = dieX;    //position x when die
+	this.dieY    = dieY;    //position y when die
+	this.visible = visible; //boolean visible
 }
 
-//Phương thức di chuyển monster
+//Add method move monster
 Monster.prototype.move = function() {
 
 	if (this.x == this.toX && this.y == this.toY) {
@@ -70,7 +80,7 @@ Monster.prototype.move = function() {
 		this.y -= speed;
 	}
 
-	//xóa monster và trừ điểm khi monster trở về vị trí đầu
+	//disable monster
 	if (this.x == this.initX && this.y == this.initY) {
 		this.visible = false;
 		this.x = this.initX;
@@ -81,7 +91,8 @@ Monster.prototype.move = function() {
 		randomMonster();
 	}
 };
-//KHỞI TẠO OBJECT MONSTER
+
+//Init ojbect monster form class Monster
 var monster1 = new Monster(0,   0,   0,   0,   120, 120, 120, 120, false, 0, 0, true);
 var monster2 = new Monster(210, 0,   210, 0,   210, 120, 210, 120, false, 0, 0, false);
 var monster3 = new Monster(420, 0,   420, 0,   300, 120, 300, 120, false, 0, 0, false);
@@ -91,7 +102,10 @@ var monster6 = new Monster(0,   420, 0,   420, 120, 300, 120, 300, false, 0, 0, 
 var monster7 = new Monster(210, 420, 210, 420, 210, 300, 210, 300, false, 0, 0, false);
 var monster8 = new Monster(420, 420, 420, 420, 300, 300, 300, 300, false, 0, 0, false);
 
-//--------RESOURCE GAME (HÌNH ẢNH & ÂM THANH)----------//
+/*=============================================
+=            RESOURCE GAME            =
+=============================================*/
+
 //Main Background
 var bgImage = new Image();
 bgImage.src = "images/mainbg.png";
@@ -164,15 +178,20 @@ var swordrawSound = new Audio("sound/swordraw.wav");
 var gameoverSound = new Audio("sound/gameover.wav");
 var bombSound = new Audio("sound/bomb.wav");
 
-//--------END RESOURCE GAME (HÌNH ẢNH & ÂM THANH)----------//
+/*=====  End of RESOURCE GAME  ======*/
 
-//SỬ LÝ KHI CLICK VÀO CONTENT
+
+/**
+ * Event click container
+ *
+ */
 containCanvas.addEventListener("click", function(e) {
 	var xPosition = e.pageX - this.offsetLeft;
 	var yPosition = e.pageY - this.offsetTop;
 	score -= 5;
 	heart--;
 
+	//if monster visible call clickMonster
 	if (monster1.visible) {
 		clickMonster(xPosition, yPosition, monster1);
 	}
@@ -199,9 +218,12 @@ containCanvas.addEventListener("click", function(e) {
 	}
 });
 
-//HÀM SỬ LÝ KHI CLICK VÀO MENU
+/**
+ * Event click menu
+ *
+ */
 menuCanvas.addEventListener("click", function(e){
-	//vị trí trỏ chuột
+	//Position mouse
 	var xPosition = e.pageX - this.offsetLeft;
 	var yPosition = e.pageY - this.offsetTop;
 
@@ -227,13 +249,18 @@ menuCanvas.addEventListener("click", function(e){
 	}	
 });
 
-//HÀM SỬ LÝ KHI MONSTER ĐƯỢC CLICK
+/**
+ * Determine the monster clicked to define monster, blood, sound, score,..
+ * @param {currX} position mouse x
+ * @param {currY} position mouse y
+ * @param {monster} object monster
+ */
 function clickMonster(currX, currY, monster) {
-	//xác định vị trí trỏ chuột ngay vị trí monster
+	//Determine monster have clicked
 	if (currX >= monster.x && currX <= monster.x + monsterImageSize.width && currY >= monster.y && currY <= monster.y + monsterImageSize.height) {
 		score += 10;
 		heart++;
-		//xác định monster die
+		//define monster died 
 		monster.visible = false;
 		monster.die = true;
 		monster.dieX = currX;
@@ -243,18 +270,19 @@ function clickMonster(currX, currY, monster) {
 		monster.toX = monster.initToX;
 		monster.toY = monster.initToY;
 
-		//xác định vị trí máu khi giết monster
+		//blood position
 		var blood = {};
 		blood.x = monster.dieX;
 		blood.y = monster.dieY;
 
-		bloodList[bloodList.length] = blood; //danh sách chứa đt vị trí máu
+		//list blood
+		bloodList[bloodList.length] = blood;
 
 		if (bloodList.length > 5) {
 			bloodList.splice(0, 1);
 		}
 
-		//xác định độ khó
+		//level
 		var levelBefore = level;
 		level = Math.floor((score - 100) / 100);
 		if (level < levelBefore) {
@@ -273,7 +301,7 @@ function clickMonster(currX, currY, monster) {
 		changeMonster(level);
 		increaseSpeed(level);
 
-		//âm thanh
+		//sound
 		if(running){
 			swordrawSound.play();
 		}
@@ -281,7 +309,9 @@ function clickMonster(currX, currY, monster) {
 	}
 }
 
-//KILL ALL MONSTER
+/**
+ * Kill all Monster current
+ */
 function killAll() {
 	if (boomNum > 0 && end == false) {
 		boomNum--;
@@ -327,12 +357,15 @@ function killAll() {
 	}
 }
 
-//TỐC ĐỘ THEO LEVEL
+//Define speed Monster
 function increaseSpeed(level) {
 	speed = speedArr[level];
 }
 
-//ĐỔI MONSTER THEO LEVEL
+/**
+ * Change Monster with param level
+ * param {level}
+ */
 function changeMonster(level) {
 	switch(level) {
 		case 1: 
@@ -352,7 +385,10 @@ function changeMonster(level) {
 	}
 }
 
-//TẠO MONSTER RANDOM
+/**
+ * Create Random Monster
+ *
+ */
 function randomMonster() {
 	var random = Math.floor((Math.random() * 8) + 1);
 	switch (random) {
@@ -407,33 +443,34 @@ function randomMonster() {
 	}
 }
 
-//VẼ ĐỐI TƯỢNG (BACKGROUND, MENU, MÁU, ĐIỂM, MONSTER,..)
+/**
+ * Render background, items, monster, score,... 
+ *
+ */
 function render() {
 
-	//----------CONTAINER GAME-------------//
-	//in background
+	/*----------  Contain canvas  ----------*/
+	//background
 	ctx.drawImage(bgImage, 0, 0);
 
-	//ảnh boom
-	//ctx.drawImage(boomImage, 450, 2);	
-
-	//ảnh boom no
+	//boom no
 	if(explosionReady) {
 		ctx.drawImage(explosionImage, 100, 100, 300, 300);
 	}
 
-	//in ra danh sách máu
+	//list blood
 	if (bloodList.length > 0) {
 		for (bi = 0; bi < bloodList.length; bi++) {
 			ctx.drawImage(bloodImage, bloodList[bi].x - 50, bloodList[bi].y - 50);
 		}
 	}
 
+	//level
 	ctx.fillStyle = "#F1F1F1";
 	ctx.font = "24px Arial";
 	ctx.fillText("Level: " + (level + 1), 25, 32);
 
-	//in ra monster
+	//monster
 	if (monster1.visible)
 		ctx.drawImage(monsterImage, monster1.x, monster1.y, 100, 100);
 	if (monster2.visible)
@@ -451,10 +488,10 @@ function render() {
 	if (monster8.visible)
 		ctx.drawImage(monsterImage, monster8.x, monster8.y, 100, 100);
 
-	//----------END CONTAINER GAME-------------//
+	/*----------  End Contain canvas  ----------*/
 
-	//----------MENU GAME-------------//
-	//Nền menu
+	/*----------  Menu canvas  ----------*/
+	//background menu
 	ctxMenu.drawImage(mnImage, 0, 0);
 	//Boom
 	ctxMenu.drawImage(boomImage, 430, 25, 55, 55);
@@ -462,7 +499,7 @@ function render() {
 	ctxMenu.drawImage(pauseImage, 380, 35, 40, 40);	
 	//Restart
 	ctxMenu.drawImage(restartImage, 320, 35, 40, 40);
-	//Mạng img
+	//heart img
 	var xH = 90;
 	for(h = 1; h <= heart; h++) {
 		ctxMenu.drawImage(heartImage, xH, 15);
@@ -470,17 +507,20 @@ function render() {
 	}
 	ctxMenu.font = "25px Arial";
 	ctxMenu.fillStyle = "#FFF";
-	//Mạng
+	//Heart
 	ctxMenu.fillText("Heart:", 10, 35);
-	//Điểm người chơi
+	//Score
 	ctxMenu.fillText("Score: " + score, 10, 70);
-	//Số Boom
+	//Number Boom
 	ctxMenu.fillText(boomNum, 465, 40);
 
-	//----------END MENU GAME-------------//
+	/*----------  End Menu canvas  ----------*/
 }
 
-//UPDATE 
+/**
+ * Update Game
+ *
+ */
 function update() {
 	if (monster1.visible)
 		monster1.move();
@@ -500,7 +540,10 @@ function update() {
 		monster8.move();
 }
 
-//RESET GAME
+/**
+ * Reset Game
+ * set all to begin game
+ */
 function resetGame() {
 	initMonster(monster1);
 	initMonster(monster2);
@@ -525,14 +568,20 @@ function resetGame() {
 	main();
 }
 
-//GAME OVER 
+/**
+ * Set game over
+ *
+ */
 function overGame() {
 	end = true;
 	running = false;
 	gameoverSound.play();
 }
 
-//THIẾT LẬP MẶC ĐỊNH MONSTER
+/**
+ * Init Monster with default property  
+ *
+ */
 function initMonster(monster) {
 	monster.x = monster.initX;
 	monster.y = monster.initY;
@@ -544,7 +593,10 @@ function initMonster(monster) {
 	monster.visible = false;
 }
 
-//HÀM XỬ LÝ CHÍNH
+/**
+ * Main function
+ *
+ */
 function main() {
 	if (heart < 0 || score < 0) {
 		overGame();
@@ -583,4 +635,6 @@ function main() {
 	}
 
 }
+
+//Run
 main();

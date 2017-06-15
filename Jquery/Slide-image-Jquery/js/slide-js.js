@@ -2,15 +2,25 @@
 Author: Vo Hoang Viet
 Project: Slide Image 
 */
-var slideIndex = 0; //slide bat dau
+
 var countSlides = $(".mySlides").length;
 var countDots = $(".dot").length;
-var TIME_AUTO_SEC = 4; //Thoi gian chay slide
+
+//slide start
+var slideIndex = 0; 
+//time run slide auto (second)
+var TIME_AUTO_SEC = 4;
 var autoslide;
-showSlides(); //bat dau slide
+
+//show slide
+showSlides();
+//to auto slide
 autoSlide();
 
-//AUTO SLIDE
+/**
+ * To auto run Slide
+ * with setTimeOut
+ */
 function autoSlide(){
 	slideIndex++;
 	if (slideIndex > countSlides-1) {
@@ -20,12 +30,17 @@ function autoSlide(){
 	autoslide = setTimeout(autoSlide, TIME_AUTO_SEC*1000); //auto slide
 }
 
-//HÀM CHỌN SLIDE
+/**
+ * Callback ShowSlide with param for chose slide to show
+ * @param {slide Index}
+ *
+ */
 function currentSlide(n){
 	showSlides(slideIndex = n);
 }
 
-//PREV
+
+// Event click for prev button
 $(".prev").click(function(){
 	slideIndex--;
 	if (slideIndex-1 < 0) {
@@ -34,7 +49,7 @@ $(".prev").click(function(){
 	showSlides();
 });
 
-//NEXT
+// Event click for next button
 $(".next").click(function(){
 	slideIndex++;
 	if (slideIndex > countSlides-1) {
@@ -43,7 +58,7 @@ $(".next").click(function(){
 	showSlides();
 });
 
-//DỪNG SLIDE KHI HOVER
+// Stop auto slide when mouse hover
 $(".slideshow-container").hover(function(){
 	console.log("Hover");
 	clearTimeout(autoslide);
@@ -51,7 +66,11 @@ $(".slideshow-container").hover(function(){
 	autoslide = setTimeout(autoSlide, TIME_AUTO_SEC*1000); //auto slide
 });
 
-//HÀM HIỂN THỊ SLIDE
+/**
+ * Function main to show slide 
+ * @param n
+ *
+ */
 function showSlides(){
 	for (let i = 0; i < countSlides; i++) {
 		$(".mySlides").eq(i).hide();

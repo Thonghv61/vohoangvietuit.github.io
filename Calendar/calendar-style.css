@@ -37,6 +37,23 @@ td.week {
     font-weight: bold;
     color: red;
 }
+/* td:hover {
+    background: aqua;
+}
+ */
 div#calendar-dates {
 }
 
+/* div#calendar-header {
+    background: aliceblue;
+    border-bottom: 1px solid gray;
+    padding: 4px;
+    text-align: center;
+}
+
+div.calendar-container {
+    width: 300px;
+    border: 1px solid;
+    padding: 6px;
+    position: absolute;
+} */

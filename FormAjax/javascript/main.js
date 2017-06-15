@@ -1,5 +1,8 @@
+/**
+ * Submit form ajax, check input and call ajax
+ */
 function submitFormAjax() {
-	//CHECK INPUT VALIDATE IF VALIDATE RETURN AJAX
+	//check input validate if validate return ajax
 	if (checkUsername() && checkPass() && checkEmail() && checkBirthday()) {
 		console.log("submit");
 		var uservalue = document.getElementById("username").value;
@@ -26,7 +29,11 @@ function submitFormAjax() {
 	return false;
 }
 
-//CHECK USERNAME
+/**
+ * Check username 
+ * if valid return true
+ * else return false
+ */
 function checkUsername() {
 	var usernameRegex = new RegExp("^[A-Za-z0-9]+$");
 	var username = document.getElementById("username");
@@ -42,7 +49,11 @@ function checkUsername() {
 	return false;
 }
 
-//CHECK PASSWORD
+/**
+ * Check password 
+ * if valid return true
+ * else return false
+ */
 function checkPass() {
 	var pass = document.getElementById("password");
 	if (pass.value.length >= 8) {
@@ -53,7 +64,11 @@ function checkPass() {
 	return false;
 }
 
-//CHECK EMAIL
+/**
+ * Check email 
+ * if valid return true
+ * else return false
+ */
 function checkEmail() {
 	var emailRegex = new RegExp("^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$");
 	var email = document.getElementById("email");
@@ -65,7 +80,11 @@ function checkEmail() {
 	return false;
 }
 
-//CHECK BIRTHDAY
+/**
+ * Check birthday 
+ * if valid return true
+ * else return false
+ */
 function checkBirthday() {
 	var birthRegex = new RegExp("^(?:(?:31(\\/|-|\\.)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\\/|-|\\.)(?:0?[1,3-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:29(\\/|-|\\.)0?2\\3(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\\d|2[0-8])(\\/|-|\\.)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$");
 	var birth = document.getElementById("datepicker");
@@ -77,7 +96,9 @@ function checkBirthday() {
 	return false;
 }
 
-//RESET FORM
+/**
+ * Reset form
+ */
 function resetForm() {
 	document.getElementById("username").value = "";
 	document.getElementById("password").value = "";

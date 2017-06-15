@@ -3,12 +3,16 @@ window.onload = function() {
     var d = new Date();
     var month_name = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     var day_name = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-    var month = d.getMonth(); //lấy tháng hiện tại
-    var year = d.getFullYear(); //lấy năm hiện tại
+    var month = d.getMonth(); 
+    var year = d.getFullYear();
 
+    //add event click call Show when click input
     input.addEventListener("click", show);
 
-    //HÀM HIỂN THỊ CALENDAR
+    /**
+     * Main function To Show Calendar
+     * create with div container 
+     */
     function show() {
         input.removeEventListener("click", show);
         var first_date = month_name[month] + " " + 1 + " " + year;
@@ -25,19 +29,26 @@ window.onload = function() {
         var div = document.createElement('div');
         div.className = "calendar-container";
         div.appendChild(calendar);
-        if (input.nextSibling) { // Find the next sibling, and add newItem before it
+        // Find the next sibling, and add newItem before it
+        if (input.nextSibling) { 
             input.parentNode.insertBefore(div, input.nextSibling);
-        } else { // In case the existingItem has no sibling after itself, append it
+        // In case the existingItem has no sibling after itself, append it    
+        } else { 
             input.parentNode.appendChild(div);
         }
     }
 
-    //HÀM IN RA BẢNG CHO CALENDAR
+    /**
+     * Create calendar 
+     * @param {day no in month}
+     * @param {days in month}
+     * @return table Calendar
+     */
     function get_calendar(day_no, days) {
         var table = document.createElement('table');
         var tr = document.createElement('tr');
 
-        //nút prev year 
+        //create button prev year 
         var td = document.createElement('td');
         var prevY = document.createElement('button');
         prevY.innerHTML = "<<";
@@ -52,7 +63,7 @@ window.onload = function() {
         td.appendChild(prevY);
         tr.appendChild(td);
 
-        //nút pre month
+        //create button pre month
         td = document.createElement('td');
         var prevM = document.createElement('button');
         prevM.innerHTML = "<";
@@ -67,8 +78,9 @@ window.onload = function() {
         td.appendChild(prevM);
         tr.appendChild(td);
 
-        //chọn tháng năm
-        //chọn tháng
+        /*----------  Chose month year  ----------*/
+        
+        //Chose month
         td = document.createElement('td');
         var listMonth = document.createElement('select');
         listMonth.onchange = function() {
@@ -80,7 +92,7 @@ window.onload = function() {
             //listMonth.options[listMonth.selectedIndex].text = month_name[month];        
         };
 
-        //chọn năm
+        //Chose year
         var listYear = document.createElement('select');
         listYear.onchange = function() {
             year = this.options[this.selectedIndex].value;
@@ -112,8 +124,9 @@ window.onload = function() {
         //td.innerHTML = month_name[month]+" "+year;
         td.setAttribute("colspan", "3");
         tr.appendChild(td);
-
-        //nút next month
+        /*----------  End Chose month year  ----------*/
+        
+        //create button next month
         td = document.createElement('td');
         var nextM = document.createElement('button');
         nextM.innerHTML = ">";
@@ -129,7 +142,7 @@ window.onload = function() {
         tr.appendChild(td);
         table.appendChild(tr);
 
-        //nút prev year 
+        //create button prev year 
         td = document.createElement('td');
         var nextY = document.createElement('button');
         nextY.innerHTML = ">>";
@@ -144,7 +157,7 @@ window.onload = function() {
         td.appendChild(nextY);
         tr.appendChild(td);
 
-        //IN TÊN NGÀY TRONG TUẦN
+        //Print day in week
         tr = document.createElement('tr');
         for (var week_day = 0; week_day <= 6; week_day++) {
             td = document.createElement('td');
@@ -154,7 +167,7 @@ window.onload = function() {
         }
         table.appendChild(tr);
 
-        //IN NGÀY TRỐNG TRONG THÁNG
+        //Print day empty in month
         tr = document.createElement('tr');
         var c;
         for (c = 0; c <= 6; c++) {
@@ -166,7 +179,8 @@ window.onload = function() {
             tr.appendChild(td);
         }
 
-        //BẮT ĐẦU IN NGÀY TRONG THÁNG
+        /*----------  Print day in month  ----------*/
+        
         var count = 1;
         for (; c <= 6; c++) {
             td = document.createElement('td');
@@ -177,7 +191,8 @@ window.onload = function() {
             }
             td.innerHTML = count;
             td.className = "days";
-            td.onclick = choseDate; //sự kiện chọn ngày
+            //event call function choseDate
+            td.onclick = choseDate;
             count++;
             tr.appendChild(td);
         }
@@ -195,17 +210,23 @@ window.onload = function() {
                 }
                 td.innerHTML = count;
                 td.className = "days";
-                td.onclick = choseDate; //sự kiện chọn ngày
+                //event call function choseDate
+                td.onclick = choseDate;
                 count++;
                 tr.appendChild(td);
             }
             table.appendChild(tr);
         }
-        //KẾT THÚC IN NGÀY
+        /*----------  End Print day in month  ----------*/
+        
         return table;
     }
 
-    //HÀM TRUYỀN NGÀY CHỌN VÀO INPUT
+    /**
+     *
+     * To print chose day to input element value
+     *
+     */
     function choseDate() {
         var div = this.parentNode.parentNode.parentNode;
 

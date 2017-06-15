@@ -2,25 +2,43 @@
 Author: Vo Hoang Viet
 Project: Slide Image 
 */
-var slideIndex = 1; //slide bat dau
 var slides = document.getElementsByClassName("mySlides");
 var dots = document.getElementsByClassName("dot");
-var TIME_AUTO_SEC = 4; //Thoi gian chay slide
-showSlides(); //bat dau slide
-setInterval(function(){plusSlides(1);}, TIME_AUTO_SEC*1000); //auto slide
 
-//HÀM GỌI KHI NHẤN NÚT NEXT, PREV
+//slide start
+var slideIndex = 1; 
+//time run slide auto (second)
+var TIME_AUTO_SEC = 4;
+
+//show slide
+showSlides(); 
+//auto run 
+setInterval(function(){plusSlides(1);}, TIME_AUTO_SEC*1000);
+
+/**
+ * Callback ShowSlides with param for next and prev button
+ * @param {num slide to plus}
+ *
+ */
 function plusSlides(n){
 	showSlides(slideIndex += n);
 	console.log("Run");
 }
 
-//HÀM CHỌN SLIDE
+/**
+ * Callback ShowSlide with param for chose slide to show
+ * @param {slide Index}
+ *
+ */
 function currentSlide(n){
 	showSlides(slideIndex = n);
 }
 
-//HÀM HIỂN THỊ SLIDE
+/**
+ * Function main to show slide 
+ * @param n
+ *
+ */
 function showSlides(n){
 	if (n > slides.length) {
 		slideIndex = 1;

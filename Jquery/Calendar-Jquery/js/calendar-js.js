@@ -3,16 +3,20 @@ window.onload = function() {
     var d = new Date();
     var month_name = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     var day_name = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-    var month = d.getMonth(); //lấy tháng hiện tại
-    var year = d.getFullYear(); //lấy năm hiện tại
+    var month = d.getMonth(); 
+    var year = d.getFullYear(); 
 
+    //add event click call Show when click input
     $("#datepicker").click(function(){
         show();
     });
 
-    //HÀM HIỂN THỊ CALENDAR
+    /**
+     * Main function To Show Calendar
+     * create with div container 
+     */
     function show() {
-        //bỏ sự kiện click
+        //remove event click
         $("#datepicker").off('click');
         var first_date = month_name[month] + " " + 1 + " " + year;
         //September 1 2014
@@ -29,17 +33,22 @@ window.onload = function() {
         $div.click(function(){ /* ... */ });
         $div.append(calendar);
 
-        //in lịch dưới input
+        //print calendar after input 
         $div.insertAfter(input);
     }
 
-    //HÀM IN RA BẢNG CHO CALENDAR
+    /**
+     * Create calendar 
+     * @param {day no in month}
+     * @param {days in month}
+     * @return table Calendar
+     */
     function get_calendar(day_no, days) {
 
         var $table = $("<table>");
         var $tr = $("<tr>");
 
-        //nút prev year 
+        //create button prev year 
         var $td = $("<td>");
         var $prevY = $("<button>");
 
@@ -55,7 +64,7 @@ window.onload = function() {
         $td.append($prevY);
         $tr.append($td);
 
-        //nút pre month
+        //create button pre month
         $td = $("<td>");
         var $prevM = $("<button>");
         $prevM.html("<");
@@ -70,8 +79,9 @@ window.onload = function() {
         $td.append($prevM);
         $tr.append($td);
 
-        //chọn tháng năm
-        //chọn tháng
+        /*----------  Chose month year  ----------*/
+        
+        //Chose month
         $td = $("<td>");
         $listMonth = $("<select>");
         $listMonth.change(function() {
@@ -83,7 +93,7 @@ window.onload = function() {
             //listMonth.options[listMonth.selectedIndex].text = month_name[month];        
         });
 
-        //chọn năm
+        //Chose year
         $listYear = $("<select>");
         $listYear.change(function() {
             year = this.options[this.selectedIndex].value;
@@ -93,7 +103,7 @@ window.onload = function() {
             show();
         });
 
-        //option tháng
+        //option month
         for (var i = 0; i <= 11; i++) {
             $option = $("<option>");
             //var option = document.createElement('option');
@@ -105,7 +115,7 @@ window.onload = function() {
             $listMonth.append($option);
         }
 
-        //option năm
+        //option year
         for (var j = 1950; j <= d.getFullYear(); j++) {
             $option = $("<option>");
             $option.val(j);
@@ -119,8 +129,9 @@ window.onload = function() {
         $td.append($listYear);
         $td.attr("colspan", "3");
         $tr.append($td);
+        /*----------  End Chose month year  ----------*/
 
-        //nút next month
+        //create button next month
         $td = $("<td>");
         var $nextM = $("<button>");
         $nextM.text(">");
@@ -136,7 +147,7 @@ window.onload = function() {
         $tr.append($td);
         $table.append($tr);
 
-        //nút prev year 
+        //create button prev year 
         $td = $("<td>");
         var $nextY = $("<button>");
         $nextY.text(">>");
@@ -151,7 +162,7 @@ window.onload = function() {
         $td.append($nextY);
         $tr.append($td);
 
-        //IN THỨ
+        //Print day in week
         $tr = $("<tr>");
         for (var week_day = 0; week_day <= 6; week_day++) {
             $td = $("<td>", {"class":"week"});
@@ -160,7 +171,7 @@ window.onload = function() {
         }
         $table.append($tr);
 
-        //IN NGÀY TRỐNG TRONG THÁNG
+        //Print day empty in month
         $tr = $("<tr>");
         var c;
         for (c = 0; c <= 6; c++) {
@@ -172,7 +183,7 @@ window.onload = function() {
             $tr.append($td);
         }
 
-        //BẮT ĐẦU IN NGÀY TRONG THÁNG
+        /*----------  Print day in month  ----------*/
         var count = 1;
         for (; c <= 6; c++) {
             $td = $("<td>", {"class":"days"});
@@ -182,8 +193,9 @@ window.onload = function() {
                 });
             }
             $td.html(count);
+            //event call function choseDate
             $td.click(function(e){
-                choseDate(e); //sự kiện chọn ngày
+                choseDate(e);
             });
             count++;
             $tr.append($td);
@@ -203,19 +215,24 @@ window.onload = function() {
                     });
                 }
                 $td.html(count);
+                //event call function choseDate
                 $td.click(function(e){
-                    choseDate(e); //sự kiện chọn ngày
+                    choseDate(e);
                 });
                 count++;
                 $tr.append($td);
             }
             $table.append($tr);
         }
-        //KẾT THÚC IN NGÀY
+        /*----------  End Print day in month  ----------*/
         return $table;
     }
 
-    //HÀM TRUYỀN NGÀY CHỌN VÀO INPUT
+    /**
+     *
+     * To print chose day to input element value
+     *
+     */
     function choseDate(e) {
         var day = $(e.target).text();
         //alert(day);
