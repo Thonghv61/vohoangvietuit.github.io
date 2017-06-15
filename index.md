@@ -13,8 +13,8 @@
 # Jquery
 * [Slide ảnh](https://vohoangvietuit.github.io/Jquery/Slide-image-Jquery/)
 * [Calendar](https://vohoangvietuit.github.io/Jquery/Calendar-Jquery/)
-* [Form Ajax](https://vohoangvietuit.github.io/FormAjax-Jquery)
-* [Game Monter](https://vohoangvietuit.github.io/GameMonster-Jquery)
+* [Form Ajax](https://vohoangvietuit.github.io/Jquery/FormAjax-Jquery)
+* [Game Monter](https://vohoangvietuit.github.io/Jquery/GameMonster-Jquery)
 # HTML5 Canvas
 * Bai tap 
 
