@@ -15,10 +15,7 @@
 * [Calendar](https://vohoangvietuit.github.io/Jquery/Calendar-Jquery/)
 * [Form Ajax](https://vohoangvietuit.github.io/Jquery/FormAjax-Jquery)
 * [Game Monter](https://vohoangvietuit.github.io/Jquery/GameMonster-Jquery)
-# HTML5 Canvas
-* Bai tap 
-
 # Responsive
-* Bai tap 
+* [Web Responsive](https://vohoangvietuit.github.io/Responsive/web-responsive)
 
 Author - Võ Hoàng Việt
