@@ -4,6 +4,9 @@
     font-family: sans-serif;
 }
 
+.info-news p {
+    width: 272px;
+}
 .info-news b {
     font-size: 12px;
     color: #2092c5;
