@@ -47,8 +47,7 @@ a.web-info:before {
 }
 
 div#content {
-  margin-left: 15px;
-  margin-top: 50px;
+  margin: 50px 0 0 50px;
 }
 
 .box-2 li {
@@ -96,7 +95,7 @@ div#sidebar {
   box-sizing: border-box;
   background: #1f1f1f;
   padding: 50px 35px;
-  height: 450px;
+  height: 60%;
 }
 
 div#main {
@@ -120,6 +119,11 @@ div#main {
   -o-text-decoration: none;
   text-decoration: none;
   text-align: center;
+  display: block;
+}
+
+.nav li a span {
+  display: block;
 }
 
 .nav li {
@@ -137,14 +141,14 @@ div#main {
   left: 68px;
 }
 
-.siteTtl h2 {
+.site-title h2 {
   color: black;
   font-size: 40px;
   margin-top: 35px;
   margin-left: 100px;
 }
 
-.siteTtl {
+.site-title {
   background: url(images/logo.jpg) no-repeat;
   width: 353px;
   height: 116px;

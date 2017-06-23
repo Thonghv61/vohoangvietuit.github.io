@@ -1,19 +1,33 @@
-* {
+﻿* {
   margin: 0;
   padding: 0;
 }
-
+.clear:after{
+    content: '';
+    display: block;
+    clear: both;
+    height: 0;
+    visibility: hidden;
+}
 .post {
     margin-top: 40px;
     padding: 0 4px;
+    font-size: 15px;
 }
 
 .comment h4 {
   text-align: center;
+  font-size: 17px;
 }
 
 .comment {
   padding: 20px 6px;
+  font-size: 14px;
+}
+
+.comment table input[type="text"] {
+    width: 135px;
+    height: 16px;
 }
 
 .post-info a {
@@ -25,10 +39,10 @@
   color: #5b98d1;
 }
 
-span.post-info {
-  margin-left: 16%;
-  display: block;
+p.post-info {
+  margin-left: 90px;
   padding: 1px 0;
+  font-size: 14px;
 }
 
 
@@ -55,15 +69,15 @@ span.post-info {
 }
 
 .facts .title {
-  font-weight: bold;
+  background: none;
 }
 
-.facts ul {
+.facts-contain {
   list-style: none;
   margin-left: 60px;
 }
 
-.facts ul li {
+.facts-contain li {
   padding: 4px 0;
 }
 
@@ -75,9 +89,8 @@ span.post-info {
 .info {
   margin-left: 15px;
   height: 100px;
-  width: 385px;
+  width: 100%;
   overflow: scroll;
-  float: left;
 }
 
 .info ul {
@@ -87,21 +100,22 @@ span.post-info {
 .player-info img {
   width: 100px;
   height: 90px;
-  float: left;
 }
 
 .player-info {
-  overflow: auto;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
 }
 
-.profile .title {
+.title {
   background: url(images/title_bg.gif) repeat-x;
   height: 25px;
-  line-height: 25px;
-}
-
-.title span {
-  font-weight: bold;
+  line-height: 1.6;
+  font-size: 16px;
+  padding-left: 4px;
 }
 
 div#container {

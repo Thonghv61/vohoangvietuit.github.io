@@ -5,8 +5,9 @@
 }
 
 .info-news p {
-    width: 272px;
+    /* width: 272px; */
 }
+
 .info-news b {
     font-size: 12px;
     color: #2092c5;
@@ -24,7 +25,7 @@ a {
 a.to-top {
     float: right;
 }
-#search input[type="submit"] {
+.search input[type="submit"] {
     color: white;
     cursor: pointer;
     font-weight: bold;
@@ -34,13 +35,10 @@ a.to-top {
     padding: 3px;
 }
 
-#search input[type="text"] {
+.search input[type="text"] {
     margin-left: 15px;
     font-size: 16px;
     width: 140px;
-}
-
-div#search {
 }
 
 .local-list {
@@ -76,18 +74,32 @@ div#search {
     padding: 10px;
 }
 
-.footer-news img {
-    margin-right: 90px;
-}
-
-.footer-news {
-    background: #292728;
-    padding: 20px 0;
-}
-
 div#footer {
     text-align: center;
-    width: 1200px;
+    width: 1100px;
+    margin: 0 auto;
+}
+
+ul.footer-news {
+    background: #292728;
+    list-style-type: none;
+    text-align: center;
+    padding: 12px 30px;
+}
+
+ul.footer-news li {
+    display: inline-block;
+    margin-right: 70px;
+}
+
+ul.footer-news li a {
+    display: block;
+    color: white;
+    font-size: 14px;
+}
+
+ul.footer-news li a img {
+    display: block;
     margin: 0 auto;
 }
 
@@ -109,6 +121,7 @@ span {
 
 .image-movie {
     float: left;
+    width: 30%;
 }
 
 .list-movie h3 {
@@ -129,6 +142,12 @@ h3.start-3 {
     padding: 8px;
     overflow: auto;
     border-bottom: 1px dotted #a4a4a4;
+}
+
+.list-movie p {
+    float: left;
+    width: 60%;
+    padding: 0 0 0 10px!important;
 }
 
 .box.box-movie {
@@ -158,7 +177,7 @@ h3.start-3 {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    padding: 0px 10px;
+    padding-left: 10px;
     max-height: 0;
     overflow: hidden;
     -webkit-transition: max-height 0.2s ease-out;
@@ -248,7 +267,10 @@ button.accordion.active:after {
 
 .title-new {background: url(images/h2-confidential-heading-bg.gif);height: 26px;}
 
-.box {
+.box {width: 50%;}
+
+.box.border-right {
+    border-right: 1px dotted black;
 }
 
 .box-news {background: white;margin-right: 15px;}
@@ -272,11 +294,11 @@ div#content {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    width: 1200px;
+    width: 1100px;
     padding: 10px 0;
     margin: 0 auto;
 }
 
-div#container {
+body {
     background: black;
 }
