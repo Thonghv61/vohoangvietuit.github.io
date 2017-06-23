@@ -16,6 +16,6 @@
 * [Form Ajax](https://vohoangvietuit.github.io/Jquery/FormAjax-Jquery)
 * [Game Monter](https://vohoangvietuit.github.io/Jquery/GameMonster-Jquery)
 # Responsive
-* [Web Responsive](https://vohoangvietuit.github.io/Responsive/web-responsive)
+* [Web Responsive](https://vohoangvietuit.github.io/Responsive/web-responsive-version2)
 
 Author - Võ Hoàng Việt
