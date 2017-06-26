@@ -30,16 +30,6 @@ function autoSlide(){
 	autoslide = setTimeout(autoSlide, TIME_AUTO_SEC*1000); //auto slide
 }
 
-/**
- * Callback ShowSlide with param for chose slide to show
- * @param {slide Index}
- *
- */
-function currentSlide(n){
-	showSlides(slideIndex = n);
-}
-
-
 // Event click for prev button
 $(".prev").click(function(){
 	slideIndex--;
@@ -58,6 +48,13 @@ $(".next").click(function(){
 	showSlides();
 });
 
+// Event click for dot button
+$(".dot").click(function(){
+	index = $(".dot").index(this) + 1;
+	slideIndex = index;
+	console.log(slideIndex);
+	showSlides();
+});
 // Stop auto slide when mouse hover
 $(".slideshow-container").hover(function(){
 	console.log("Hover");
@@ -72,18 +69,18 @@ $(".slideshow-container").hover(function(){
  *
  */
 function showSlides(){
-	for (let i = 0; i < countSlides; i++) {
+	for (var i = 0; i < countSlides; i++) {
 		$(".mySlides").eq(i).hide();
 	}
-	for (let i = 0; i < countDots; i++) {
+/*	for (let i = 0; i < countDots; i++) {
 		$(".dot").eq(i).removeClass("active");
 	}
-/*	$(".mySlides").each(function(){
+	$(".mySlides").each(function(){
 		$(this).hide();
 	});
 	$(".dot").each(function(){
 		$(this).hide();
 	});*/
 	$(".mySlides").eq(slideIndex-1).show();
-	$(".dot").eq(slideIndex-1).addClass("active");
+	$(".dot").eq(slideIndex-1).addClass("active").siblings().removeClass("active");
 }

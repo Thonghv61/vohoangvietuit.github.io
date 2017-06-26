@@ -1,7 +1,9 @@
 //Main Canvas
-var ctx = $("#containCanvas")[0].getContext("2d");
+var containCanvas = document.getElementById("containCanvas");
+var ctx = containCanvas.getContext("2d");
 //Menu canvas
-var ctxMenu = $("#menuCanvas")[0].getContext("2d");
+var menuCanvas = document.getElementById("menuCanvas");
+ctxMenu = menuCanvas.getContext("2d");
 
 const FPS = 60;
 //frame per second
@@ -90,7 +92,7 @@ Monster.prototype.move = function() {
 	}
 };
 
-//Init ojbect monster form class Monster
+//Init object monster form class Monster
 var monster1 = new Monster(0,   0,   0,   0,   120, 120, 120, 120, false, 0, 0, true);
 var monster2 = new Monster(210, 0,   210, 0,   210, 120, 210, 120, false, 0, 0, false);
 var monster3 = new Monster(420, 0,   420, 0,   300, 120, 300, 120, false, 0, 0, false);
@@ -185,10 +187,9 @@ var bombSound = new Audio("sound/bomb.wav");
  * Event click container
  *
  */
-var offsetContain = $("#containCanvas").offset();
 containCanvas.addEventListener("click", function(e) {
-	var xPosition = e.pageX - offsetContain.left;
-	var yPosition = e.pageY - offsetContain.top;
+	var xPosition = e.pageX - this.offsetLeft;
+	var yPosition = e.pageY - this.offsetTop;
 	score -= 5;
 	heart--;
 
@@ -204,11 +205,10 @@ containCanvas.addEventListener("click", function(e) {
  * Event click menu
  *
  */
-var offsetMenu = $("#menuCanvas").offset();
 menuCanvas.addEventListener("click", function(e){
 	//Position mouse
-	var xPosition = e.pageX - offsetMenu.left;
-	var yPosition = e.pageY - offsetMenu.top;
+	var xPosition = e.pageX - this.offsetLeft;
+	var yPosition = e.pageY - this.offsetTop;
 
 	//boom explosion
 	if(xPosition > 430 && xPosition < 485 && yPosition > 25 && yPosition < 80) {
@@ -306,7 +306,6 @@ function killAll() {
 				score += 10;
 			}
 		}
-		
 		setTimeout(function() {
 			randomMonster();
 			explosionReady = false;

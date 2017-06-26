@@ -13,7 +13,7 @@ var TIME_AUTO_SEC = 4;
 //show slide
 showSlides(); 
 //auto run 
-setInterval(function(){plusSlides(1);}, TIME_AUTO_SEC*1000);
+setInterval(function(){showSlides(slideIndex += 1);}, TIME_AUTO_SEC*1000);
 
 /**
  * Callback ShowSlides with param for next and prev button
@@ -47,10 +47,8 @@ function showSlides(n){
 		slideIndex = slides.length;
 	}
 
-	for (let i = 0; i < slides.length; i++) {
+	for (var i = 0; i < slides.length; i++) {
 		slides[i].style.display = "none";
-	}
-	for (let i = 0; i < dots.length; i++) {
 		dots[i].classList.remove("active"); 
 	}
 	slides[slideIndex - 1].style.display = "block";

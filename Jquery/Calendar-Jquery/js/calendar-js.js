@@ -85,7 +85,7 @@ window.onload = function() {
         $td = $("<td>");
         $listMonth = $("<select>");
         $listMonth.change(function() {
-            month = this.options[this.selectedIndex].value;
+            month = parseInt(this.options[this.selectedIndex].value);
             console.log(this.options[this.selectedIndex].value);
 
             $table.parent().remove();
@@ -96,7 +96,7 @@ window.onload = function() {
         //Chose year
         $listYear = $("<select>");
         $listYear.change(function() {
-            year = this.options[this.selectedIndex].value;
+            year = parseInt(this.options[this.selectedIndex].value);
             console.log(this.options[this.selectedIndex].value);
 
             $table.parent().remove();

@@ -7,14 +7,14 @@ window.onload = function() {
     var year = d.getFullYear();
 
     //add event click call Show when click input
-    input.addEventListener("click", show);
+    input.addEventListener("focus", show);
 
     /**
      * Main function To Show Calendar
      * create with div container 
      */
     function show() {
-        input.removeEventListener("click", show);
+        input.removeEventListener("focus", show);
         var first_date = month_name[month] + " " + 1 + " " + year;
         //September 1 2014
         var tmp = new Date(first_date).toDateString();
@@ -231,6 +231,6 @@ window.onload = function() {
 
         input.value = this.innerHTML + "/" + (parseInt(month) + 1) + "/" + year;
         div.parentNode.removeChild(div);
-        input.addEventListener("click", show);
+        input.addEventListener("focus", show);
     }
 };
