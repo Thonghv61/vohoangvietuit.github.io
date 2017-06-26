@@ -16,14 +16,14 @@ window.onload = function() {
     function show() {
         input.removeEventListener("focus", show);
         var first_date = month_name[month] + " " + 1 + " " + year;
-        //September 1 2014
+        //September 1 2017
         var tmp = new Date(first_date).toDateString();
-        //Mon Sep 01 2014 ...
+        //Mon Sep 01 2017 ...
         var first_day = tmp.substring(0, 3); //Mon
 
         var day_no = day_name.indexOf(first_day); //1
         var days = new Date(year, month + 1, 0).getDate(); //30
-        //Tue Sep 30 2014 ...
+        //Tue Sep 30 2017 ...
         var calendar = get_calendar(day_no, days);
 
         var div = document.createElement('div');
@@ -42,6 +42,7 @@ window.onload = function() {
      * Create calendar 
      * @param {day no in month}
      * @param {days in month}
+     * @return table Calendar
      */
     function get_calendar(day_no, days) {
         var table = document.createElement('table');
@@ -83,8 +84,8 @@ window.onload = function() {
         td = document.createElement('td');
         var listMonth = document.createElement('select');
         listMonth.onchange = function() {
-            month = this.options[this.selectedIndex].value;
-            console.log(this.options[this.selectedIndex].value);
+            month = parseInt(this.options[this.selectedIndex].value);
+            console.log(this.options[this.selectedIndex].value + 1);
 
             table.parentNode.parentNode.removeChild(table.parentNode);
             show();
@@ -94,7 +95,7 @@ window.onload = function() {
         //Chose year
         var listYear = document.createElement('select');
         listYear.onchange = function() {
-            year = this.options[this.selectedIndex].value;
+            year = parseInt(this.options[this.selectedIndex].value);
             console.log(this.options[this.selectedIndex].value);
 
             table.parentNode.parentNode.removeChild(table.parentNode);
@@ -109,7 +110,7 @@ window.onload = function() {
             }
             listMonth.appendChild(option);
         }
-        for (var j = 1950; j <= d.getFullYear(); j++) {
+        for (var j = 1950; j <= (d.getFullYear() + 50); j++) {
             var option = document.createElement('option');
             option.value = j;
             option.text = j;
@@ -141,12 +142,12 @@ window.onload = function() {
         tr.appendChild(td);
         table.appendChild(tr);
 
-        //create button prev year 
+        //create button next year 
         td = document.createElement('td');
         var nextY = document.createElement('button');
         nextY.innerHTML = ">>";
         nextY.onclick = function() {
-            if (year < d.getFullYear()) {
+            if (year < d.getFullYear() + 50) {
                 year++;
                 table.parentNode.removeChild(table);
                 show();
