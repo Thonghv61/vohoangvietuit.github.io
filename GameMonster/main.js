@@ -92,7 +92,7 @@ Monster.prototype.move = function() {
 	}
 };
 
-//Init ojbect monster form class Monster
+//Init object monster form class Monster
 var monster1 = new Monster(0,   0,   0,   0,   120, 120, 120, 120, false, 0, 0, true);
 var monster2 = new Monster(210, 0,   210, 0,   210, 120, 210, 120, false, 0, 0, false);
 var monster3 = new Monster(420, 0,   420, 0,   300, 120, 300, 120, false, 0, 0, false);
@@ -102,6 +102,8 @@ var monster6 = new Monster(0,   420, 0,   420, 120, 300, 120, 300, false, 0, 0, 
 var monster7 = new Monster(210, 420, 210, 420, 210, 300, 210, 300, false, 0, 0, false);
 var monster8 = new Monster(420, 420, 420, 420, 300, 300, 300, 300, false, 0, 0, false);
 
+//Array monster object
+var monster = [monster1, monster2, monster3, monster4, monster5, monster6, monster7, monster8];
 /*=============================================
 =            RESOURCE GAME            =
 =============================================*/
@@ -192,29 +194,10 @@ containCanvas.addEventListener("click", function(e) {
 	heart--;
 
 	//if monster visible call clickMonster
-	if (monster1.visible) {
-		clickMonster(xPosition, yPosition, monster1);
-	}
-	if (monster2.visible) {
-		clickMonster(xPosition, yPosition, monster2);
-	}
-	if (monster3.visible) {
-		clickMonster(xPosition, yPosition, monster3);
-	}
-	if (monster4.visible) {
-		clickMonster(xPosition, yPosition, monster4);
-	}
-	if (monster5.visible) {
-		clickMonster(xPosition, yPosition, monster5);
-	}
-	if (monster6.visible) {
-		clickMonster(xPosition, yPosition, monster6);
-	}
-	if (monster7.visible) {
-		clickMonster(xPosition, yPosition, monster7);
-	}
-	if (monster8.visible) {
-		clickMonster(xPosition, yPosition, monster8);
+	for(var i = 0; i < 8; i++){
+		if (monster[i].visible) {
+			clickMonster(xPosition, yPosition, monster[i]);
+		}
 	}
 });
 
@@ -316,37 +299,12 @@ function killAll() {
 	if (boomNum > 0 && end == false) {
 		boomNum--;
 		explosionReady = true;
-		if (monster1.visible == true) {
-			monster1.visible = false;
-			score += 10;
-		}
-		if (monster2.visible == true) {
-			monster2.visible = false;
-			score += 10;
-		}
-		if (monster3.visible == true) {
-			monster3.visible = false;
-			score += 10;
-		}
-		if (monster4.visible == true) {
-			monster4.visible = false;
-			score += 10;
-		}
-		if (monster5.visible == true) {
-			monster5.visible = false;
-			score += 10;
-		}
-		if (monster6.visible == true) {
-			monster6.visible = false;
-			score += 10;
-		}
-		if (monster7.visible == true) {
-			monster7.visible = false;
-			score += 10;
-		}
-		if (monster8.visible == true) {
-			monster8.visible = false;
-			score += 10;
+
+		for(var i = 0; i < 8; i++){
+			if (monster[i].visible == true) {
+				monster[i].visible = false;
+				score += 10;
+			}
 		}
 		setTimeout(function() {
 			randomMonster();
@@ -471,22 +429,10 @@ function render() {
 	ctx.fillText("Level: " + (level + 1), 25, 32);
 
 	//monster
-	if (monster1.visible)
-		ctx.drawImage(monsterImage, monster1.x, monster1.y, 100, 100);
-	if (monster2.visible)
-		ctx.drawImage(monsterImage, monster2.x, monster2.y, 100, 100);
-	if (monster3.visible)
-		ctx.drawImage(monsterImage, monster3.x, monster3.y, 100, 100);
-	if (monster4.visible)
-		ctx.drawImage(monsterImage, monster4.x, monster4.y, 100, 100);
-	if (monster5.visible)
-		ctx.drawImage(monsterImage, monster5.x, monster5.y, 100, 100);
-	if (monster6.visible)
-		ctx.drawImage(monsterImage, monster6.x, monster6.y, 100, 100);
-	if (monster7.visible)
-		ctx.drawImage(monsterImage, monster7.x, monster7.y, 100, 100);
-	if (monster8.visible)
-		ctx.drawImage(monsterImage, monster8.x, monster8.y, 100, 100);
+	for(var i = 0; i < 8; i++){
+		if (monster[i].visible)
+			ctx.drawImage(monsterImage, monster[i].x, monster[i].y, 100, 100);
+	}
 
 	/*----------  End Contain canvas  ----------*/
 
@@ -522,22 +468,10 @@ function render() {
  *
  */
 function update() {
-	if (monster1.visible)
-		monster1.move();
-	if (monster2.visible)
-		monster2.move();
-	if (monster3.visible)
-		monster3.move();
-	if (monster4.visible)
-		monster4.move();
-	if (monster5.visible)
-		monster5.move();
-	if (monster6.visible)
-		monster6.move();
-	if (monster7.visible)
-		monster7.move();
-	if (monster8.visible)
-		monster8.move();
+	for(var i = 0; i < 8; i++){
+		if (monster[i].visible)
+			monster[i].move();
+	}
 }
 
 /**
@@ -545,14 +479,9 @@ function update() {
  * set all to begin game
  */
 function resetGame() {
-	initMonster(monster1);
-	initMonster(monster2);
-	initMonster(monster3);
-	initMonster(monster4);
-	initMonster(monster5);
-	initMonster(monster6);
-	initMonster(monster7);
-	initMonster(monster8);
+	for(var i = 0; i < 8; i++){
+		initMonster(monster[i]);
+	}
 
 	level = 0;
 	end = false;
