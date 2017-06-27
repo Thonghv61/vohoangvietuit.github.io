@@ -1,0 +1,77 @@
+@media screen and (max-width:644px) {
+	div.header {
+		float: none;
+		height: auto;
+		padding: 14px 0 10px 0;
+	}
+	div.inner {
+		height: auto;
+		margin: 0 auto;
+		padding: 0 1%;
+		text-align: center;
+		width: 98%;
+		min-width: 50%;
+	}
+	div.float, img.float, a.float, .float {
+		float: none !important;
+		text-align: center;
+		margin: 7px auto;
+		display: inline-block;
+	}
+	div.aside {
+		float: none;
+		width: 98%;
+		margin: 5px auto;
+	}
+	div.content {
+		width: 98%;
+		margin: 6px auto;
+	}
+	* {
+	}
+	a.btn_1 {
+		text-align: center !important;
+		width: 100%;
+	}
+	.footer {
+		float: none !important;
+		padding: 0px !important;
+		height: 254px !important;
+	}
+	.footer-right {
+		width: 97%;
+		left: 0px;
+		top: 150px;
+		margin: 5px auto;
+	}
+	img.content_2 {
+		height: auto;
+		display: block;
+		margin: 10px auto;
+	}
+	div.blog-1 h2 {
+		padding: 10px 0 10px 3px;
+	}
+	img.content_1 {
+		height: auto;
+	}
+	div.banner {
+		height: auto;
+		margin: 0;
+		padding: 0;
+	}
+	.banner img {
+		height: auto !important;
+	}
+	div.inner {
+		height: auto;
+		margin: 0 auto;
+		padding: 0 1%;
+		text-align: center;
+		width: 98%;
+		min-width: 50%;
+	}
+	a.footer_btn img, img.footer_phone {
+		height: auto;
+	}
+}
