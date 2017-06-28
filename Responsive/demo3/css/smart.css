@@ -29,6 +29,8 @@
 	}
 	* {
 	}
+
+ul.list-1 {}
 	a.btn_1 {
 		text-align: center !important;
 		width: 100%;
@@ -36,7 +38,7 @@
 	.footer {
 		float: none !important;
 		padding: 0px !important;
-		height: 254px !important;
+		height: 253px !important;
 	}
 	.footer-right {
 		width: 97%;
