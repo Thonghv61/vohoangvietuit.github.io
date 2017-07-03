@@ -30,6 +30,26 @@
 	* {
 	}
 
+div.blog-3 ul {
+    padding: 15px 5px;
+}
+
+div.blog-3 ul li {
+    width: 100%;
+    background: none;
+    border: 1px solid #d9cbb2;
+    border-radius: 10px;
+    margin: 5px 0;
+}
+
+p.txt_line_1 {
+    line-height: 1.6;
+}
+
+div#page-top {
+    top: -50px;
+}
+
 	.footer-left ul {
 	    margin: 0px auto;
 	}
