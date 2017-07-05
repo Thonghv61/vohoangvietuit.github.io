@@ -1,0 +1,205 @@
+
+/*! #######################################################################
+
+	MeanMenu 2.0.6
+	--------
+	
+	To be used with jquery.meanmenu.js by Chris Wharton (http://www.meanthemes.com/plugins/meanmenu/)
+
+####################################################################### */
+
+/* hide the link until viewport size is reached */
+a.meanmenu-reveal {
+	display: none;
+}
+div.nav{
+	height:auto;
+	margin:0;
+	display:none;
+	}
+/* when under viewport size, .mean-container is added to body */
+.mean-container .mean-bar {
+	float:left;
+	width: 100%;
+	position: relative;
+	background:#000000;
+	padding: 4px 0;
+	min-height: 42px;
+	z-index: 999999;
+	display:inline-block;	
+}
+.mean-container a.meanmenu-reveal {
+	width: 22px;
+	height: 22px;
+	padding: 13px 13px 11px 13px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	cursor: pointer;
+	color: #ffffff;
+	text-decoration: none;
+	font-size: 16px;
+	text-indent: -9999em;
+	line-height: 22px;
+	font-size: 1px;
+	display: block;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: 700;
+}
+.mean-container a.meanmenu-reveal span {
+	display: block;
+	background: #ffffff;
+	height: 3px;
+	margin-top: 3px;
+}
+.mean-container .mean-nav {
+	float: left;
+	width: 100%;
+	margin-top: 44px;
+	height:auto;	
+}
+.mean-container .mean-nav ul {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	list-style-type: none;
+}
+.mean-container .mean-nav ul li {
+	position: relative;
+	float: left;
+	width: 100%;
+	border-bottom: 1px solid #ffffff;
+	height:auto !important;
+	z-index:1;
+}
+.mean-container .mean-nav ul li a {
+	display: block;
+	float: left;
+	width: 90%;
+	padding: 0 5%;
+	margin: 0;
+	text-align: center;
+	z-index:9999999;
+	height:54px;
+}
+.mean-container .mean-nav ul li a img{
+	display:none;
+	}
+.mean-container .mean-nav ul li.menu_1 a{
+	background:url(../images/menu_1.png) no-repeat center 3px;
+	}	
+.mean-container .mean-nav ul li.menu_2 a{
+	background:url(../images/menu_2.png) no-repeat center 3px;
+	}
+.mean-container .mean-nav ul li.menu_3 a.menu_3{
+	background:url(../images/menu_3.png) no-repeat center 3px
+	}
+.mean-container .mean-nav ul li.menu_4 a{
+	background:url(../images/menu_4.png) no-repeat center 3px
+	}
+.mean-container .mean-nav ul li.menu_5 a{
+	background:url(../images/menu_5.png) no-repeat center 3px
+	}
+.mean-container .mean-nav ul li.menu_6 a{
+	background:url(../images/menu_6.png) no-repeat center 3px
+	}	
+.mean-container .mean-nav ul li.menu_1 a:hover,
+.mean-container .mean-nav ul li.menu_1 a.active{
+	background:url(../images/menu_1_hover.png) no-repeat center 3px;
+	}	
+.mean-container .mean-nav ul li.menu_2 a:hover,
+.mean-container .mean-nav ul li.menu_2 a.active{
+	background:url(../images/menu_2_hover.png) no-repeat center 3px;
+	}
+.mean-container .mean-nav ul li.menu_3 a:hover,
+.mean-container .mean-nav ul li.menu_3 a.active{
+	background:url(../images/menu_3_hover.png) no-repeat center 3px;
+	}
+.mean-container .mean-nav ul li.menu_4 a:hover,
+.mean-container .mean-nav ul li.menu_4 a.active{
+	background:url(../images/menu_4_hover.png) no-repeat center 3px;
+	}
+.mean-container .mean-nav ul li.menu_5 a:hover,
+.mean-container .mean-nav ul li.menu_5 a.active{
+	background:url(../images/menu_5_hover.png) no-repeat center 3px;
+	}
+.mean-container .mean-nav ul li.menu_6 a:hover,
+.mean-container .mean-nav ul li.menu_6 a.active{
+	background:url(../images/menu_6_hover.png) no-repeat center 3px;
+	}
+.mean-container .mean-nav ul li.menu_3{
+	height:auto !important;
+	width:100%;
+	}
+.mean-container .mean-nav ul li.menu_3:hover ul.subNav{
+    display: block;
+    height: auto;
+    padding: 0px;
+    width: 100%;
+	
+}
+
+.mean-container .mean-nav ul li ul.subNav li.subNav {
+   
+	border-top:none;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0px !important;
+    text-align: center;
+    width: 100%;
+	border-bottom: 1px solid #ffffff;
+}
+.mean-container .mean-nav ul li ul.subNav li.subNav a.subNav {
+    float: none !important;
+    font-size: 11px;
+    height: auto !important;
+    margin-top: 0 !important;
+    text-align: center;
+	padding-top:15px !important;
+	padding-bottom:15px !important;
+	color:#715a44;
+}
+.mean-container .mean-nav ul li ul.subNav li.subNav a.subNav:hover {
+    text-decoration:underline;
+	background:none !important;
+
+}
+a.mean-expand{
+	height:36px !important;
+	position:absolute;
+	width:47px !important;
+	right:0px !important;
+	top:15px;
+	padding:0px !important;
+	font-size:15px !important;
+	font-weight:bold;
+	border:none !important;
+	color:#715a44;
+	background:none !important;
+	}
+a.mean-clicked{
+	height:22px !important;
+	position:absolute;
+	font-size:16px !important;
+	font-weight:bold;
+	border:none !important;
+	color:#715a44;
+	}
+
+.mean-container .mean-nav ul li a.menu_1 {background:url(../images/menu_1.png) no-repeat center center;}
+.mean-container .mean-nav ul li a.menu_1:hover {background:url(../images/menu_1_hover.png) no-repeat center center;}
+
+.mean-container .mean-nav ul li a.menu_2 {background:url(../images/menu_2.png) no-repeat center center;}
+.mean-container .mean-nav ul li a.menu_2:hover {background:url(../images/menu_2_hover.png) no-repeat center center;}
+
+.mean-container .mean-nav ul li a.menu_3 {background:url(../images/menu_3.png) no-repeat center center;}
+.mean-container .mean-nav ul li a.menu_3:hover {background:url(../images/menu_3_hover.png) no-repeat center center;}
+
+.mean-container .mean-nav ul li a.menu_4 {background:url(../images/menu_4.png) no-repeat center center;}
+.mean-container .mean-nav ul li a.menu_4:hover {background:url(../images/menu_4_hover.png) no-repeat center center;}
+
+.mean-container .mean-nav ul li a.menu_5 {background:url(../images/menu_5.png) no-repeat center center;}
+.mean-container .mean-nav ul li a.menu_5:hover {background:url(../images/menu_5_hover.png) no-repeat center center;}
+
+.mean-container .mean-nav ul li a.menu_6 {background:url(../images/menu_6.png) no-repeat center center;}
+.mean-container .mean-nav ul li a.menu_6:hover {background:url(../images/menu_6_hover.png) no-repeat center center;}	
