@@ -1,0 +1,44 @@
+@media screen and (max-width:644px) {
+
+	.phone_pc {
+		display: none !important
+	}
+
+	.phone_sp {
+		display: inline-block !important
+	}
+
+	div.float,
+	img.float,
+	a.float,
+	.float {
+		float: none;
+		text-align: center;
+		margin: 7px auto;
+		display: inline-block;
+	}
+
+	div.header {
+		float: none;
+		height: auto;
+		padding: 14px 0 10px 0;
+	}
+	div.inner {
+		height: auto;
+		margin: 0 auto;
+		padding: 0 1%;
+		text-align: center;
+		width: 98%;
+		min-width: 50%;
+	}
+	div.aside {
+		float: none;
+		width: 98%;
+		margin: 5px auto;
+	}
+	div.content {
+		float: none;
+		width: 98%;
+		margin: 6px auto;
+	}
+}
