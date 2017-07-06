@@ -99,34 +99,43 @@ div.header_info {
 }
 
 /*menu*/
-div.nav{
-	width:100%;
-	height:auto;
-	display:inline-block;
-	position:relative;
-	z-index:999;
-	margin-top:10px;
-	}
+div.nav {
+    width: 100%;
+    height: auto;
+    display: inline-block;
+    position: relative;
+    z-index: 99;
+    margin-top: 10px;
+}
+div.menu {
+    max-width: 940px;
+    min-width: 940px;
+    width: 100%;
+    height: 70px;
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+}
 div.menu ul {
-	width: 100%;
-	margin: 0 auto;
-	padding: 0;
-	background: url(../images/menu_line.png) no-repeat right center;
+    width: 100%;
+    height: 70px;
+    margin: 0 auto;
+    padding: 0;
+    background: url(../images/menu_line.png) no-repeat right center;
 }
 div.menu ul li {
-    max-width: 185px;
+    max-width: 184px;
     width: 100%;
-	height: 70px;
-	background: url(../images/menu_line.png) no-repeat left center;
-	display: inline-block;
-	*display: inline;
+    height: 70px;
+    background: url(../images/menu_line.png) no-repeat left center;
+    display: inline-block;
+    *display: inline;
 }
-
 div.menu ul li a {
-	display: inline-block;
-	width: 100%;
-	*width: 187px;
-	height: 70px;
+    display: inline-block;
+    width: 100%;
+    *width: 184px;
+    height: 70px;
 }
 div.menu ul li a.menu_1 {background:url(../images/menu_1.png) no-repeat center center;}
 div.menu ul li a.menu_1:hover, div.menu ul li.active a.menu_1 {background:url(../images/menu_1_hover.png) no-repeat center center;}
