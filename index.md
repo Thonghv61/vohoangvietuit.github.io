@@ -15,6 +15,7 @@
 * [Calendar](https://vohoangvietuit.github.io/Jquery/Calendar-Jquery/)
 * [Form Ajax](https://vohoangvietuit.github.io/Jquery/FormAjax-Jquery)
 * [Game Monter](https://vohoangvietuit.github.io/Jquery/GameMonster-Jquery)
+* [Chart JS](https://vohoangvietuit.github.io/Jquery/ChartJS)
 # Responsive
 * [Web Responsive](https://vohoangvietuit.github.io/Responsive/web-responsive-version2)
 * [Demo 3](https://vohoangvietuit.github.io/Responsive/demo3)
