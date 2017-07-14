@@ -118,7 +118,7 @@ section {
 }
 
 body {
-  color: #7a7a7a;
+  color: #715a44;
   font-family: 'Lucida Grande','Hiragino Kaku Gothic ProN',Meiryo,sans-serif;
   font-size: 13px;
   background: #fff;
@@ -216,7 +216,6 @@ div.header-phone {
 
 div.header-phone img.phone_pc {
   margin-right: 12px;
-  max-width: 100%;
 }
 
 div.header-phone img {
@@ -253,10 +252,16 @@ div.menu ul {
 }
 
 div.menu ul li {
-  width: 163px;
-  box-sizing: border-box;
+  width: 160px;
+  height: 63px;
   border-left: 2px solid #fff;
-  float: left;
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  *display: inline-block;
 }
 
 div.menu ul li:last-child {
@@ -353,12 +358,12 @@ div.article_index {
 
 .article_index_1 {
   float: left;
-  width: 314px;
+  width: 315px;
   height: auto;
 }
 
 .article_index_2 {
-  float: right;
+  margin-left: 14px;
 }
 
 .blog {
@@ -389,7 +394,8 @@ div.article_index {
   width: 152px;
   height: auto;
   font-size: 12px;
-  font-weight: 500;
+  font-family: "Kozuka Gothic Pr6N";
+  color: #595959;
   line-height: 1.45;
   margin-left: 12px;
 }
@@ -406,7 +412,7 @@ div.article_index {
   width: 100%;
   height: 30px;
   font-size: 14px;
-  font-weight: 600;
+  font-family: "Kozuka Gothic Pr6N";
   color: #595959;
   line-height: 2.3;
   text-align: left;
@@ -419,12 +425,11 @@ div.article_index {
   padding-left: 10px;
 }
 
-.blog h4 a, a.link-left {
+.blog h4 a {
   background: url(../images/icon_1.jpg) no-repeat right center;
   float: right;
-  font-size: 11px;
   padding-right: 18px;
-  margin: 3px 5px 0 0 !important;
+  margin: 0 5px 0 0 !important;
   color: #82d65f;
 }
 
@@ -435,6 +440,7 @@ dl.index {
   text-align: left;
   text-align: left;
   font-size: 13px;
+  font-family: "Kozuka Gothic Pr6N";
   color: rgb(82, 82, 96);
   line-height: 1.615;
 }
@@ -454,7 +460,9 @@ dl.index dd {
 }
 
 img.img_3 {
-  max-width: 100%;
+  max-width: 315px;
+  width: 100%;
+  height: 240px;
 }
 
 div.article_main {
@@ -480,6 +488,7 @@ div.article_main h2 {
   margin-bottom: 12px;
   color: #595959;
   font-size: 21px;
+  font-family: "Kozuka Gothic Pr6N";
   font-weight: 500;
   line-height: 0.878;
 }
@@ -494,7 +503,9 @@ img.item_1 {
 }
 
 img.content_4 {
-  max-width: 100%;
+  max-width: 599px;
+  width: 100%;
+  height: 112px;
   margin-bottom: 33px;
 }
 
@@ -520,7 +531,7 @@ div.text-main p {
 }
 
 div.aside {
-  max-width: 314px;
+  max-width: 315px;
   width: 100%;
   height: auto;
   float: right;
@@ -531,10 +542,9 @@ div.aside .blog {
 }
 
 div.aside iframe {
-  width: 271px;
-  height: 180px;
-  margin: 0 auto 8px auto;
-  display: block;
+  width: 270px;
+  height: 280px;
+  margin-bottom: 8px;
 }
 
 div.aside_phone {
@@ -559,7 +569,9 @@ a.aside_img_3 {
 
 img.aside_img_2,
 img.aside_img_3 {
-  max-width: 100%;
+  max-width: 315px;
+  width: 100%;
+  height: 110px;
 }
 
 div.footer {
@@ -572,13 +584,7 @@ div.footer {
   margin-top: 70px;
 }
 
-img.footer-logo {
-  max-width: 292px;
-  width: 100%;
-  height: auto;
-}
-
-.footer-left {
+.footer_left {
   float: left;
   width: 330px;
   border-right: 3px solid #f2f2f2;
@@ -587,9 +593,7 @@ img.footer-logo {
   color: #7a7a7a;
 }
 
-.footer-left a.link-left {margin: 0px 36px 28px 0!important;float: none;text-align: right;display: block;}
-
-.footer-right {
+.footer_right {
   float: left;
   margin-top: 54px;
   max-width: 576px;
@@ -599,34 +603,34 @@ img.footer-logo {
   text-align: left;
 }
 
-.footer-right ul {
+.footer_right ul {
   float: left;
   width: 175px;
   text-align: left;
 }
 
-.footer-right ul li {
+.footer_right ul li {
   margin: 3px 0;
-  display: block;
+  display: inline-block;
+  width: 100%;
 }
 
-.footer-right ul li a {
-  font-size: 12px;
+.footer_right ul li a {
   background: url(../images/icon_1.jpg) no-repeat left center;
   color: #525260;
   padding-left: 20px;
 }
 
-.footer-right li.menu_sub {
+.footer_right ul li.menu_sub {
   margin-left: 40px;
 }
 
-.footer-right li.menu_sub a {
+.footer_right ul li.menu_sub a {
   background: url(../images/icon_3.jpg) no-repeat left center;
   padding: 15px;
 }
 
-.footer-left p {
+.footer_left p {
   margin-bottom: 20px;
 }
 
@@ -640,11 +644,9 @@ div.copyright {
   display: inline-block;
   width: 100%;
   height: 38px;
-  padding: 10px 0;
+  padding: 9px 0;
   background: url(../images/copyright_bg.jpg) repeat-x left center;
   text-align: center;
-  font-size: 11px;
-  font-weight: 600;
   color: #7a7a7a;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;

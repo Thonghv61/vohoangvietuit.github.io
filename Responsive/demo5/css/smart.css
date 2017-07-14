@@ -1,4 +1,4 @@
-@media screen and (max-width:644px) {
+@media screen and (max-width:640px) {
 
 .phone_pc {
   display: none !important;
@@ -16,6 +16,11 @@ a.float,
   text-align: center;
   margin: 7px auto;
   display: inline-block;
+  box-sizing: border-box;
+}
+
+div.aside {
+    max-width: 98%;
 }
 
 div.header {
@@ -43,15 +48,15 @@ div.inner {
   min-width: 50%;
 }
 
-/* 	div.aside {
-	float: none;
-	width: 98%;
-	margin: 5px auto;
+/*  div.aside {
+  float: none;
+  width: 98%;
+  margin: 5px auto;
 }
 div.content {
-	float: none;
-	width: 98%;
-	margin: 6px auto;
+  float: none;
+  width: 98%;
+  margin: 6px auto;
 } */
 
 div.banner {
@@ -62,9 +67,13 @@ div.article_index {
   text-align: center;
 }
 
+.article_index_1 {
+    width: 96%;
+}
 
 
-.footer_right {
+
+.footer-right {
   padding: 10px 0px 0px 20px !important;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -73,19 +82,20 @@ div.article_index {
   box-sizing: border-box;
 }
 
-.footer_right ul {
+.footer-right ul {
+  display: block;
   width: 48%;
 }
 
-.footer_right ul li {
+.footer-right ul li {
   width: 80%;
 }
 
-.footer_right ul li.menu_sub {
+.footer-right ul li.menu_sub {
   margin-left: 10px;
 }
 
-.footer_left {
+.footer-left {
   border-right: none;
   border-bottom: 3px solid #f2f2f2;
   padding-bottom: 8px;
