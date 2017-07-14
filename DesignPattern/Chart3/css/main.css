@@ -1,0 +1,15 @@
+*{}
+
+div#myDetail {
+    display: inline-block;
+    text-align: left;
+}
+
+div#myDetail div {
+    padding: 6px 0;
+}
+canvas#myCanvas {
+    display: inline-block;
+    margin: 0 50px;
+    text-align: left;
+}
