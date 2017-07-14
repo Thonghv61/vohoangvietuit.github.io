@@ -25,6 +25,6 @@
 * [Demo 9](https://vohoangvietuit.github.io/Responsive/demo9)
 # Design Pattern
 * [Slide-image](https://vohoangvietuit.github.io/DesignPattern/Slide-image)
-
+* [Chart 3](https://vohoangvietuit.github.io/DesignPattern/Chart3)
 
 Author - Võ Hoàng Việt
