@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Skill Chart dropdown</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+	<div class="container">
+		<div class="side">
+			<div class="tab">
+			  <button class="tablinks" onclick="openform(event, 'importfile')" id="defaultOpen">Import File</button>
+			  <button class="tablinks" onclick="openform(event, 'enterinput')">Enter Input</button>
+			  <button class="tablinks" onclick="openform(event, 'importurl')">Import URL</button>
+			</div>
+			<div id="importfile" class="tabcontent">
+				<div class="load-file">
+					<label for="fileInput" class="custom-openfile">
+					    <i class="fa fa-folder-open" aria-hidden="true"></i> Open File
+					</label>
+					<input type="file" id="fileInput" accept=".json"> <br>
+					<output id="fileOutput"></output>
+				</div>
+			</div>
+			<div id="enterinput" class="tabcontent">
+				<p>Please Import JSON Data Type</p>
+			 	<textarea id="textInput"></textarea>
+			</div>
+			<div id="importurl" class="tabcontent">
+				<p>Please Import URL File</p>
+				<input type="text" id="urlInput">
+			</div>
+			<input class="btn" id="renderJS" type="button" value="Render">
+			<input class="btn" id="backBtn"  type="button" value="Back">
+		</div>
+		<div class="draw" id="chart-radar">
+		</div>
+	</div>
+	<script src="js/d3.min.js"></script>
+	<script src="js/adapter.js"></script>
+	<script src="js/chart.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>
