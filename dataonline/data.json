@@ -1,0 +1,99 @@
+[
+	{
+		"name": "Vo Van A",
+		"id": "DE01",
+		"group": ".NET",
+		"skills": {
+			"OOP": 8,
+			"3 Layer": 8,
+			"Database": 7,
+			"API": 3,
+			".NET base": 7
+		}
+	},
+	{
+		"name": "Vo Hoang H",
+		"id": "DE11",
+		"group": ".NET",
+		"skills": {
+			"OOP": 8.7,
+			"3 Layer": 9.4,
+			"Database": 7,
+			"API": 5,
+			".NET base": 7
+		}
+	},
+	{
+		"name": "Vo Hoang E",
+		"id": "DE61",
+		"group": ".NET",
+		"skills": {
+			"OOP": 8.38,
+			"3 Layer": 6,
+			"Database": 9,
+			"API": 8,
+			".NET base": 7
+		}
+	},
+
+	{
+		"name": "Le Van A",
+		"id": "DE02",
+		"group": "Front-end",
+		"skills": {
+			"HTML": 6,
+			"CSS": 8,
+			"Javascript": 9,
+			"Reactjs": 5,
+			"Angular": 8
+		}
+	},
+	{
+		"name": "Le Van B",
+		"id": "DE03",
+		"group": "Front-end",
+		"skills": {
+			"HTML": 3,
+			"CSS": 8,
+			"Javascript": 7,
+			"Reactjs": 5,
+			"Angular": 5
+		}
+	},
+	{
+		"name": "Le Van C",
+		"id": "DE04",
+		"group": "QC",
+		"skills": {
+			"Unit Test": 7,
+			"Auto": 6,
+			"skill3": 5,
+			"skill4": 8,
+			"skill5": 6
+		}
+	},
+	{
+		"name": "Le Van D",
+		"id": "DE05",
+		"group": "Java",
+		"skills": {
+			"Java OOP": 5,
+			"Database": 7,
+			"Front Skills": 8,
+			"Sping MVC": 5,
+			"MySQL": 4
+		}
+	},
+	{
+		"name": "Le Van S",
+		"id": "DE06",
+		"group": "Java",
+		"skills": {
+			"Java OOP": 4,
+			"Database": 5,
+			"Front Skills": 6,
+			"Sping MVC": 3,
+			"MySQL": 7
+		}
+	}
+]

@@ -1,0 +1,123 @@
+[
+	{
+		"name": "Vo Hoang Viet",
+		"id": "DE01",
+		"group": 1,
+		"skills": {
+			"skill1": 8,
+			"skill2": 6,
+			"skill3": 7,
+			"skill4": 3,
+			"skill5": 7
+		}
+	},
+	{
+		"name": "Vo Hoang T",
+		"id": "DE11",
+		"group": 1,
+		"skills": {
+			"skill1": 8,
+			"skill2": 6,
+			"skill3": 7,
+			"skill4": 3,
+			"skill5": 7
+		}
+	},
+	{
+		"name": "Vo Hoang E",
+		"id": "DE61",
+		"group": 1,
+		"skills": {
+			"skill1": 8,
+			"skill2": 7,
+			"skill3": 7,
+			"skill4": 3,
+			"skill5": 7
+		}
+	},
+
+	{
+		"name": "Le Van A",
+		"id": "DE02",
+		"group": 1,
+		"skills": {
+			"skill1": 6,
+			"skill2": 8,
+			"skill3": 9,
+			"skill4": 5,
+			"skill5": 8
+		}
+	},
+	{
+		"name": "Le Van B",
+		"id": "DE03",
+		"group": 2,
+		"skills": {
+			"skill1": 3,
+			"skill2": 8,
+			"skill3": 7,
+			"skill4": 5,
+			"skill5": 5
+		}
+	},
+	{
+		"name": "Le Van C",
+		"id": "DE04",
+		"group": 3,
+		"skills": {
+			"skill1": 7,
+			"skill2": 6,
+			"skill3": 5,
+			"skill4": 8,
+			"skill5": 6
+		}
+	},
+	{
+		"name": "Le Van D",
+		"id": "DE05",
+		"group": 4,
+		"skills": {
+			"skill1": 5,
+			"skill2": 7,
+			"skill3": 8,
+			"skill4": 5,
+			"skill5": 4
+		}
+	},
+	{
+		"name": "Le Van S",
+		"id": "DE06",
+		"group": 4,
+		"skills": {
+			"skill1": 4,
+			"skill2": 5,
+			"skill3": 6,
+			"skill4": 3,
+			"skill5": 7
+		}
+	},
+	{
+		"name": "Le Van S",
+		"id": "DE09",
+		"group": 5,
+		"skills": {
+			"skill1": 7,
+			"skill2": 8,
+			"skill3": 9,
+			"skill4": 5,
+			"skill5": 4
+		}
+	},
+	{
+		"name": "Le Van Se",
+		"id": "DE56",
+		"group": 5,
+		"skills": {
+			"skill1": 6,
+			"skill2": 8,
+			"skill3": 5,
+			"skill4": 7,
+			"skill5": 8
+		}
+	}
+]
