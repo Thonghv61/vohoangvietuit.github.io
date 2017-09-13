@@ -1,7 +1,7 @@
 //Info init radar chart
 var infoRadarChart = {
     width: 800,
-    height: 700,
+    height: 650,
     divId: "#chart-radar"
 };
 
@@ -32,25 +32,23 @@ function drawRadarChart(data) {
     };
     w = infoRadarChart.width;
     h = infoRadarChart.height - margin.top - margin.bottom;
-    console.log("width vs height  is " + w, h);
     var color = d3.scaleOrdinal(d3.schemeCategory20);
-
 
     // Define a specific area that can accommodate a circular shape (like Cartesian axis)
     var circleConstraint = d3.min([h, w]);
-    console.log("circleConstraint  is:" + circleConstraint);
+
     var radius = d3.scaleLinear().range([0, (circleConstraint / 2)]);
-    console.log("radius " + radius);
 
     // find center of drawing area (center of radar)
     var centerXPos = w / 2 + margin.left;
     var centerYPos = h / 2 + margin.top;
-    console.log("centerXPos is " + centerXPos + " centerYPos is " + centerYPos);
 
     //reset
     d3.select(infoRadarChart.divId).html("");
     // draw root element <svg>
     var svg = d3.select(infoRadarChart.divId).append("svg")
+        .attr("preserveAspectRatio", "xMinYMin meet")
+        .attr("viewBox", "0 0 " + (w + margin.left + margin.right) + " " + (h + margin.top + margin.bottom))
         .attr("width", w + margin.left + margin.right)
         .attr("height", h + margin.top + margin.bottom)
         .append("g")
@@ -63,17 +61,13 @@ function drawRadarChart(data) {
         if (d.value > maxValue)
             maxValue = d.value;
     });
-    console.log("data " + data);
 
     var topValue = 1.5 * maxValue;
-
-    console.log("topValue " + topValue);
 
     var ticks = [];
     for (i = 0; i < 5; i++) {
         ticks[i] = Math.round(topValue * i / 5 * 10) / 10;
     }
-    console.log("ticks: " + ticks);
     radius.domain([0, topValue]);
 
 
@@ -88,7 +82,7 @@ function drawRadarChart(data) {
             return radius(d);
         })
         .attr("class", "circle")
-        .style("stroke", "#CCC")
+        .style("stroke", "#9E9E9E")
         .style("fill", "none");
 
     circleAxes.append("svg:text")
@@ -122,6 +116,7 @@ function drawRadarChart(data) {
         .attr("transform", function(d, i) {
             return "rotate(" + (90 - (i * 360 / data.length)) + ")";
         })
+        .attr("text-decoration", "underline")
         .on("click", function(d){
             drillDownLevel++;
             hiddenBtn();
@@ -184,16 +179,12 @@ function drawRadarChart(data) {
                 } //close the line
                 return (i / data.length) * 2 * Math.PI;
             }))
+            .attr("animation", "bounceIn 2s")
         .data(series)
         .style("stroke-width", 3)
-        .style("fill", function(d, i) {  
-            return color(i);
-        })
-        .style("fill-opacity", 0.2)
-
-        .style("stroke", function(d, i) {
-            return color(i);
-        });
+        .style("fill", "#F44336")
+        .style("fill-opacity", 0.5)
+        .style("stroke", "#F44336");
 
 
 
@@ -222,10 +213,11 @@ function drawRadarChart(data) {
         .attr("cy", function(d, i) {
             return radius(d) * -1 * Math.cos(i * 2 * Math.PI / data.length);
         })
-        .style("fill", "rgb(153, 191, 241)")
+        .style("fill", "#F44336")
+        .style("fill-opacity", 0.8)
         .on('mouseover', function (d){
             d3.select(this)
-                .style("fill", "rgb(69, 144, 243)");
+            .style("fill-opacity", 1)
 
             newX =  parseFloat(d3.select(this).attr('cx')) - 10;
             newY =  parseFloat(d3.select(this).attr('cy')) - 5;
@@ -238,7 +230,7 @@ function drawRadarChart(data) {
         })
         .on('mouseout', function(){
             d3.select(this)
-                .style("fill", "rgb(153, 191, 241)");
+            .style("fill-opacity", 0.8)
 
             tooltip.transition(200)
             .style('opacity', 0);
@@ -257,7 +249,8 @@ function drawRadarChart(data) {
         .attr("x", (w / 2))
         .attr("y", -30)
         .attr("text-anchor", "middle")
-        .style("font-size", "22px")
+        .attr("font-family","sans-serif")
+        .style("fill", "")
         .text(function() {
             switch(drillDownLevel) {
                 case 0:
@@ -293,7 +286,7 @@ function printTable(group, skill, value) {
 //Function for drill down event
 function drillLevel0() {
     var dataGroup = calculateDataGroup(resultData);
-    console.log(dataGroup);
+    console.log("data group: " + dataGroup);
     drawRadarChart(dataGroup);
 }
 function drillLevel1(group) {

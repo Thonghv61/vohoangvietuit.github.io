@@ -2,12 +2,18 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Skill Chart dropdown</title>
-
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/animate.css">
 	<link rel="stylesheet" href="css/main.css">
+	
 </head>
 <body>
+	<header>
+		<a href="#"><img src="img/Logo.jpeg" alt="logo"></a>
+		<h2>Chart Data Visualization </h2>
+	</header>
 	<div class="container">
 		<div class="side">
 			<div class="tab">
@@ -32,8 +38,10 @@
 				<p>Please Import URL File</p>
 				<input type="text" id="urlInput">
 			</div>
-			<input class="btn" id="renderJS" type="button" value="Render">
-			<input class="btn" id="backBtn"  type="button" value="Back">
+			<div class="bnt-group">
+				<input class="btn" id="renderJS" type="button" value="Render">
+				<input class="btn" id="backBtn" type="button" value="Back">
+			</div>
 		</div>
 		<div class="draw" id="chart-radar">
 		</div>
