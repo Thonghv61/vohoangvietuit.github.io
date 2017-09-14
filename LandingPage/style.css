@@ -277,7 +277,7 @@ a {
   display: inline-block;
   margin: 34px 0  0 40px;
   text-align: center;
-  max-width: 190px;
+  max-width: 260px;
   width: 100%;
   height: auto;
 }
@@ -357,7 +357,6 @@ a {
   padding-top: 20px;
   position: relative;
   font-size: 15px;
-  height: 102px;
-  overflow: auto;
+  height: auto;
   text-align: initial;
 }
