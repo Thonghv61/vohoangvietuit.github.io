@@ -20,9 +20,6 @@ header img {
 header h2 {
     font-size: 40px;
     color: #cc2337;
-    background: -webkit-repeating-linear-gradient(-45deg,rgba(0, 0, 0, 0.29),#e53935 20px,#e53935 0,#eb6865 40px,#e53935 0);
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
     padding-top: 10px;
     margin: 0 auto;
     text-align: center;
@@ -30,7 +27,7 @@ header h2 {
     color: #e1192c;
 }
 body {
-        background: linear-gradient(to left,#cb2d3e,#f2f2f2);
+        background: #fbe9e7;
     }
 svg {
     margin-left: 50px;
@@ -56,7 +53,7 @@ svg {
     display: flex;
 }
 .title-chart  {
-    color: #fff;
+    color: #e1192c;
     fill: #e1192c;
     font-size: 30px !important;
     font-weight: bold;
