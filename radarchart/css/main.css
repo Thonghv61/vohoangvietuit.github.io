@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Encode+Sans+Condensed|Libre+Baskerville&subset=latin-ext,vietnamese');
 *{
     margin: 0;
-    padding: 0;
-    font-family: 'Encode Sans Condensed', sans-serif;    
+    padding: 0;  
     font-family: 'Libre Baskerville', serif;
 }
 
@@ -30,7 +29,7 @@ header h2 {
     color: #e1192c;
 }
 body {
-        background: #fbe9e7;
+        background: #fff3e0;
     }
 svg {
     margin-left: 50px;
@@ -251,12 +250,15 @@ input#backBtn {
     header h2 {
         text-align: right;
         padding-right: 30px;
-        font-size: 20px
+        font-size: 17px
     }
     textarea {
         margin-top: 6px;
         width: 128px;
         height: 50px;
+    }
+    th, td {
+        padding: 6px
     }
 }
 
@@ -287,7 +289,7 @@ input#backBtn {
     header h2 {
         text-align: right;
         padding-right: 10px;
-        font-size: 16px;
+        font-size: 14px;
     }
 }
 
