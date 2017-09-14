@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Encode+Sans+Condensed|Libre+Baskerville&subset=latin-ext,vietnamese');
 *{
     margin: 0;
     padding: 0;
+    font-family: 'Encode Sans Condensed', sans-serif;    
+    font-family: 'Libre Baskerville', serif;
 }
 
 header {
