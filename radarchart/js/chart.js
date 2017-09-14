@@ -54,7 +54,7 @@ function drawRadarChart(data) {
         .append("g")
         .attr("transform", "translate(" + centerXPos + "," + centerYPos + ")");
 
-    // read data csv, verify value, find maximum value
+    //find maximum value
     var maxValue = 0;
     data.forEach(function(d) {
         d.value = +d.value;
@@ -62,6 +62,7 @@ function drawRadarChart(data) {
             maxValue = d.value;
     });
 
+    // multiple maximum value 1.5 to draw circle
     var topValue = 1.5 * maxValue;
 
     var ticks = [];
