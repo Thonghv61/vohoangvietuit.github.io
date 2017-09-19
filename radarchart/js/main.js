@@ -19,17 +19,9 @@ fileInput.addEventListener('change', function() {
 
 var timer;
 //Event call func to read text json and parse to object json
-textInput.addEventListener('keyup', function() {
-	clearTimeout(timer);
-	//create a new timer with a delay of 2 seconds, if the keyup is fired before the 2 secs then the timer will be cleared
-	timer = setTimeout(function() {
-		if (checkTextJson(textInput.value)) {
-			reset();
-			resultData = JSON.parse(textInput.value);
-		} else {
-			alert("Wrong Json Type!");
-		}
-	}, 2000);
+textInput.addEventListener('change', function() {
+	reset();
+	resultData = JSON.parse(textInput.value);
 });
 
 //Event call func to read text json from url and parse to object json
@@ -42,14 +34,15 @@ urlInput.addEventListener('change', function() {
 //Event call func to draw chart
 renderBtn.addEventListener('click', function() {
 	console.clear();
+	console.log(resultData);
 	reset();
-	//draw chart group
-	if (!resultData) {
-		alert("Please select method to input file");
-		return;
-	} else {
-		//checkRender();
+
+	//check data
+	if (checkData(resultData)) {
+		//draw chart group
 		drillLevel0();
+	} else {
+		console.log("Wrong data");
 	}
 });
 
@@ -104,15 +97,4 @@ function checkRender() {
 	renderBtn.disabled = true;
 	renderBtn.value = "Rendered";
 	renderBtn.classList.add("disable");
-}
-
-function checkTextJson(text) {
-	if (/^[\],:{}\s]*$/.test(text.replace(/\\["\\\/bfnrtu]/g, '@').replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
-		//the json is ok
-		return true;
-	} else {
-		//the json is not ok
-		//alert("Wrong text json!");
-		return false;
-	}
 }
