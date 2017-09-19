@@ -1,3 +1,8 @@
+//true property for check
+var trueArr = ["name", "id", "group", "skills"];
+var groupLenght = 3;
+var skillLenght = 3;
+
 //Load file text json
 function loadFileAndParseData() {
 	var file, fr;
@@ -63,7 +68,7 @@ function calculateDataGroup(dataDetail) {
 	var dataGroupPercent = [];
 	//group data to group
 	var dataGroupBy =  groupBy("group", dataDetail);
-	//console.log(dataGroupBy);
+	console.log(dataGroupBy);
 	//array name group
 	var allGroup = Object.keys(dataGroupBy);
 
@@ -101,8 +106,8 @@ function calculateDataSkill(groupName, dataDetail) {
 
 	//all skill
 	var skillarr = Object.keys(dataInGroup[0].skills);
-	console.log(skillarr);
-	
+	console.log("skill array: " + skillarr);
+
 	for (i in skillarr) {
 		//reset value
 		total = 0;
@@ -148,3 +153,76 @@ function groupBy(propertyName, array) {
 
 	return groupElements;
 }
+
+// ---------- Check data -------------//
+function checkData(data) {
+	if (!data) {
+		alert("Wrong input, please check agains!");
+		return false;
+	} else if (!checkArr(data)) {
+		alert("Please check property data!!");
+		return false;
+	} else if (!checkLengthGroup(data)){
+		alert("Must have at least " + groupLenght + " group in data!!! Please check");
+		return false;
+	} else if (!checkLengthSkill(data)){
+		alert("Must have at least " + skillLenght + " skill in data!!! Please check");
+		return false;
+	} else {
+		return true;
+	}
+}
+
+function checkArr(data) {
+	for (var i in data) {
+		//get array property
+		var propertyArr = Object.keys(data[i]);
+		var isSame = propertyArr.length == trueArr.length && propertyArr.every(function(element, index) {
+			return element === trueArr[index];
+		});
+		if (!isSame) {
+			break;
+		}
+	}
+	console.log("check property " + isSame);
+	return isSame;
+}
+
+function checkLengthGroup(data) {
+	//group data to group
+	var dataGroupBy =  groupBy("group", data);
+	//array name group
+	var allGroup = Object.keys(dataGroupBy);
+
+	console.log(allGroup.length);
+	if (allGroup.length < groupLenght) {
+		return false;
+	} else {
+		return true;
+	}
+}
+
+function checkLengthSkill(data) {
+	for (var i in data) {
+		var skillArr = Object.keys(data[i].skills);
+		//console.log("skill check " + skillArr);
+		if (skillArr.length < skillLenght) {
+			console.log("false check skill");
+			return false;
+		} 
+	}
+	return true;
+}
+
+
+function checkTextJson(text) {
+	if (/^[\],:{}\s]*$/.test(text.replace(/\\["\\\/bfnrtu]/g, '@').replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
+		//the json is ok
+		return true;
+	} else {
+		//the json is not ok
+		alert("Wrong format json, please select correct json type!!!");
+		return false;
+	}
+}
+// ---------- End Check data -------------//
