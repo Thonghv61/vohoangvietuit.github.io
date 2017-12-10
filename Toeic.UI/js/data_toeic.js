@@ -3,7 +3,7 @@ const dataToeic = {
 	dayBegin: "12/02/2017",
 	dayEnd: "09/12/2018",
 	assigment: "Toeic",
-	infoStudent: "Hoang Viet",
+	infoStudent: "???",
 	data: {
 		part1: [
 			{
@@ -43,9 +43,9 @@ const dataToeic = {
 				"poolName": "part2",
 				"question": "audio=media/part2/1.mp3",
 				"answers": {
-					"answerA": "Yes, I would like a ride.",
-					"answerB": "I didn't drive to work today.",
-					"answerC": "It should be there.",
+					"answerA": "",
+					"answerB": "",
+					"answerC": "",
 					"answerD": "",
 				},
 				"correctAnswer": "B",
@@ -58,9 +58,9 @@ const dataToeic = {
 				"poolName": "part2",
 				"question": "audio=media/part2/2.mp3",
 				"answers": {
-					"answerA": "Who is baking it?",
-					"answerB": "Thanks. It's my mother's recipe.",
-					"answerC": "At a restaurant near here.",
+					"answerA": "",
+					"answerB": "",
+					"answerC": "",
 					"answerD": "",
 				},
 				"correctAnswer": "B",
