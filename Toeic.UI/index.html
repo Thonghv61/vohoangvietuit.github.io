@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+	<title>Toeic Test</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">  
+	
+	<!-- CSS -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/mystyle.css">
+</head>
+<body >
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Toeic uit</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse navbar-ex1-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">Home</a></li>
+					<li class="active"><a href="#">Online Toeic Test</a></li>
+					<li><a href="#">About</a></li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div>
+	</nav>
+	
+	<div class="container">
+		<h2>THE TOEIC TEST</h2>
+		<div id="start_page">
+			<div class="contain text-center">
+				<div id="info_toeic" class="info-toeic">
+				</div>
+				<div class="info-test jumbotron">
+					<p>Based on the TOEIC test structure, this test has a total of 7 sections, including 4 Listening sections and 3 Reading sections.</p>
+					<p>The results of this test are assessed on the basis of the TOEIC score method. The scores you receive will not guarantee your actual TOEIC score, but will more or less reflect the likelihood of achieving an equivalent score.</p>
+					<p class="note">Note: To be honest, you should try to complete the exam within 120 minutes.</p>
+				</div>
+				<a id="start_test" class="btn btn-primary btn-lg">Start</a>
+			</div>
+		</div>
+		<div id="test_page" class="hidden">
+			<div class="toeic-clock text-center">
+				<button data-toggle="collapse" class="btn btn-info" data-target="#time-remain-area">Show/Hide Time</button>
+
+				<div id="time-remain-area" class="collapse in">
+					Time remaining: <span id="time_remain">120:00</span>
+				</div>
+			</div>
+			<div class="toeic-contain">
+				<div class="row">
+					<!-- question area -->
+					<div class="col-sm-8 question-area">
+						<div class="area-part" id="question_contain">
+						</div>
+<!-- 						<div class="multi-question" id="multi_question">
+						</div> -->
+
+						<div class="toeic-btn text-center">
+							<button type="button" class="btn btn-default hidden" id="backBtn">BACK</button>
+							<button type="button" class="btn btn-default" id="nextBtn">NEXT</button>
+							<button type="button" class="btn btn-success hidden" id="submitBtn" data-toggle="modal" data-target="#confirm-submit">SUBMIT</button>
+						</div>
+						
+					</div> <!-- end col 8 -->
+					
+					<!-- answer area -->
+					<div class="col-sm-4">
+						<div class="title-part">
+							<h3 class="text-center">Answer sheet</h3>
+						</div>
+						<div id="answer_sheet" class="answer-area">
+							
+						</div>
+						<div class="btnGroup">
+							<button type="button" class="btn btn-danger" id="resetBtn" data-toggle="modal" data-target="#confirm-reset">RESET</button>
+							<button type="button" class="btn btn-success" id="submitBtn" data-toggle="modal" data-target="#confirm-submit">SUBMIT</button>
+						</div>
+					</div> <!-- end col 4 -->
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="result_page" class="jumbotron text-center hidden">
+		<h1>SCORE: 900</h1>
+	</div>
+
+<!-- Submit toeic popup -->
+<div class="modal fade" id="confirm-submit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+	    <div class="modal-content">
+	        <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	            <h4 class="modal-title" id="myModalLabel">Confirm Submit Toeic</h4>
+	        </div>
+	        <div class="modal-body">
+	            <p>Are you sure want to submit toeic?</p>
+	            <p>Do you want to proceed?</p>
+	        </div>
+	        <div class="modal-footer">
+	            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+	            <a class="btn btn-success btn-ok">Submit</a>
+	        </div>
+	    </div>
+	</div>
+</div>
+
+<!-- Reset toeic popup -->
+<div class="modal fade" id="confirm-reset" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+	    <div class="modal-content">
+	        <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	            <h4 class="modal-title" id="myModalLabel">Confirm Reset Toeic</h4>
+	        </div>
+	        <div class="modal-body">
+	            <p>Are you sure want to reset toeic test?</p>
+	            <p>Do you want to proceed?</p>
+	        </div>
+	        <div class="modal-footer">
+	            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+	            <a class="btn btn-danger btn-ok">Confirm</a>
+	        </div>
+	    </div>
+	</div>
+</div>
+
+	<!-- JS --> 
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>		
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/data_toeic.js"></script>
+	<script type="text/javascript" src="js/adapter.js"></script>
+	<script type="text/javascript" src="js/toeic.js"></script>
+	<script type="text/javascript" src="js/myjs.js"></script>
+</body>
+</html>
