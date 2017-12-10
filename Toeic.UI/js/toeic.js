@@ -396,7 +396,9 @@ function nextQuestion() {
 
 function prevQuestion() {
 	let dataPart = dataToeic.data["part" + indexPart];
-	let lengthPart = dataPart.length;	
+	let lengthPart = dataPart.length;
+	nextBtn.classList.remove("hidden");
+	submitBtn.classList.add("hidden");
 	indexQuestion--;
 
 	if (indexQuestion < 0) {
