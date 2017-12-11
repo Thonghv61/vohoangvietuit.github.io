@@ -112,6 +112,12 @@ function renderToeic(dataAll) {
 	if (indexPart < 4 || (indexPart  == 5 && indexQuestion == 0)) {
 		backBtn.classList.add("hidden");
 	}
+
+	if ((indexQuestion == dataToeic.data["part" + indexPart].length -1) && indexPart == 7) {
+		nextBtn.classList.add("hidden");
+		backBtn.classList.remove("hidden");
+		submitBtn.classList.remove("hidden");
+	}
 }
 
 // Read data part
