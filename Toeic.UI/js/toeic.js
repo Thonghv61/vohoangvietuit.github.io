@@ -9,6 +9,7 @@ var timeToeicId = _('time_remain');
 var nextBtn = _("nextBtn");
 var backBtn = _("backBtn");
 var submitBtn = _("submitBtn");
+var newTestBtn = _("newTest");
 
 var question_contain = _("question_contain");
 var multi_question_area = _("multi_question");
@@ -16,11 +17,12 @@ var multi_question_area = _("multi_question");
 var toeicForm = document.getElementsByClassName("toeic-form");
 
 // Init
+var localData = JSON.parse(localStorage.getItem('infoMyTest'));
 var indexPart = 1;
 var indexQuestion = 0;
 var arrayRealQuestion = getRealQuestion(dataToeic.data);
 var isStart = false;
-var TIME_REMAINING_MINUTES = 120;
+var TIME_REMAINING_MINUTES = 20;
 var counterTimeToeic;
 var arrSelectedAnswers = [];
 var correctListening = 0;
@@ -43,7 +45,8 @@ nextBtn.addEventListener("click", function() {
 backBtn.addEventListener("click", function() {
 	prevQuestion();
 });
-// Event for back button
+
+// Event for submit button
 // submitBtn.addEventListener("click", function() {
 // 	//finishToeic();
 // });
@@ -57,10 +60,21 @@ function _(x) {
 	return document.getElementById(x);
 }
 
+function initData() {
+	if (localData) {
+		TIME_REMAINING_MINUTES = localData.timeLeft;
+		indexPart = localData.indexPart;
+		indexQuestion = localData.indexQuestion;
+		arrSelectedAnswers = localData.arrSelectedAnswers;
+	}
+}
+
 function startTest() {
 	if (isStart) {
 		start_page.classList.add("hidden");
 		test_page.classList.remove("hidden");
+		// Init data
+		initData();
 		// Counter time toeic
 		timer(TIME_REMAINING_MINUTES * 60, timeToeicId, finishToeic);	
 		// Render answer sheet
@@ -108,6 +122,14 @@ function readDataPart(dataAll, partNum) {
 
 // Render infomation toeic test
 function renderInfoToeic(data) {
+	if (localData) {
+		start_test.innerHTML = 'CONTINUE';
+		newTestBtn.classList.remove("hidden");
+	} else {
+		start_test.innerHTML = 'START';
+		newTestBtn.classList.add("hidden");
+	}
+
 	info_toeic.innerHTML = `
 		<p><b>User:</b> ${data.infoStudent}</p>
 		<p><b>Day Begin:</b> ${data.dayBegin}</p>
@@ -150,7 +172,7 @@ function renderForSingleQuestion(data) {
 				</div>
 				${data.audioUrl ? `<audio src="${data.audioUrl}" autoplay="true" controls>` : ''}
 			</div>
-			<div class="toiec-select">
+			<div class="toeic-select">
 				<form class="toiec-form">
 					<label class="radio-inline">
 						<strong>A.</strong>
@@ -262,7 +284,7 @@ function renderForMultiQuestion(data) {
 }
 
 function renderAnswerSheet(arrayRealQuestion) {
-	var localData = JSON.parse(localStorage.getItem('infoMyTest'));
+
 	//var localAnswers = JSON.parse(localStorage.getItem('infoMyTest'));
 	console.log("data localData", localData);
 	// if (localAnswers) {
@@ -297,6 +319,23 @@ function renderAnswerSheet(arrayRealQuestion) {
 			</label>
 		</div>
 	`;
+		// Set checked
+		let temId = arrayRealQuestion[i].id;
+	    $('input[attrId= '+ temId + ']').each(function(index) {
+	    	// console.log("$(this).val", $(this).val());
+	    	if (localData) {
+	    		localData.arrSelectedAnswers.forEach(answer => {
+	    			if(answer.id == temId) {
+	    				if (answer.selectedAnswer == $(this).val()) {
+	    					$(this).attr('checked', true);
+	    					//console.log("$(this).val " + $(this).val() + " temId " + temId);
+	    				}
+	    				//$(this).val() == answer.selectedAnswer
+						//$(this).prop('checked', true);
+	    			}
+	    		});
+	    	}
+	    });
 	}
 
 	// Event for radio checked
@@ -448,39 +487,52 @@ function timer(duration, blockId, func) {
 		if (--timer < 0) {
 			timer = duration;
 			clearInterval(counterTimeToeic);
-			// blockId.text("Time out");
-			// console.log("Time out");
 			func();
 		}
+
+	    // Put the object into storage
+	    var infoMyTest = {
+	    	infoData: dataToeic,
+			indexPart: indexPart,
+			timeLeft: minutes,
+			indexQuestion: indexQuestion,
+	    	arrSelectedAnswers: arrSelectedAnswers
+	    };
+		localStorage.setItem('infoMyTest', JSON.stringify(infoMyTest));
 	}, 1000);
 }
 
 function finishToeic() {
-	alert("Hoan thanh");
-	indexPart = 1;
-	indexQuestion = 0;
-	clearInterval(counterTimeToeic);
-	test_page.classList.add("hidden");
-	result_page.classList.remove("hidden");
+	checkAnswer();
+	renderResult(dataToeic);
 }
 
 function resetPage() {
-	indexPart = 1;
-	indexQuestion = 0;
-	correctListening = 0;
-	correctReading = 0;
-	arrSelectedAnswers = [];
-
-	question_contain.innerHTML = '';
-	answer_sheet.innerHTML = '';
+	resetDataToeic();
 	result_page.innerHTML = '';
 
 	nextBtn.classList.remove("hidden");
 	start_page.classList.remove("hidden");
 	test_page.classList.add("hidden");
 	result_page.classList.add("hidden");
-	clearInterval(counterTimeToeic);
 
+	renderInfoToeic(dataToeic);
+	location.reload();
+}
+
+function resetDataToeic() {
+	indexPart = 1;
+	indexQuestion = 0;
+	correctListening = 0;
+	correctReading = 0;
+	scoreTOEIC = 0;
+	arrSelectedAnswers = [];
+
+	question_contain.innerHTML = '';
+	answer_sheet.innerHTML = '';
+	//result_page.innerHTML = '';
+
+	clearInterval(counterTimeToeic);
 	localStorage.removeItem("infoMyTest");
 }
 
@@ -497,12 +549,6 @@ function getCheckedRadio(id, value, pool) {
     	selectedAnswer: value
     });	
 
-    // Put the object into storage
-    var infoMyTest = {
-    	infoData: dataToeic,
-    	arrSelectedAnswers: arrSelectedAnswers
-    };
-	localStorage.setItem('infoMyTest', JSON.stringify(infoMyTest));
     //console.log("arrSelectedAnswers", arrSelectedAnswers);
 }
 
@@ -521,23 +567,15 @@ function checkAnswer() {
 			}
 		});		
 	}
-	console.log("correctListening", correctListening);
-	console.log("correctReading", correctReading);
+	//console.log("correctListening", correctListening);
+	//console.log("correctReading", correctReading);
 	scoreTOEIC = parseInt(arrScoreListening[correctListening]) + parseInt(arrScoreReading[correctReading]);
-	console.log("correct ", correctListening + correctReading);
-	correctListening = 0;
-	correctReading = 0;
+	//console.log("correct ", correctListening + correctReading);
 }
 
 function renderResult(data) {
-	indexPart = 1;
-	indexQuestion = 0;
-	clearInterval(counterTimeToeic);
-	question_contain.innerHTML = '';
-	answer_sheet.innerHTML = '';
 	test_page.classList.add("hidden");
 	result_page.classList.remove("hidden");
-	localStorage.removeItem("arrSelectedAnswers");
 
 	result_page.innerHTML = `
 		<p><b>User:</b> ${data.infoStudent}</p>
@@ -546,6 +584,7 @@ function renderResult(data) {
 		<p><b>Assigment:</b> ${data.assigment}</p>
 		<p><b>Correct Listening:</b> ${correctListening} - <b>Correct Reading:</b> ${correctReading}</p>
 		<h2>SCORE ${scoreTOEIC}</h2>
+		<h3>Comment: You are so so lazy ^^</h3>
 		<button type="button" class="btn btn-danger" id="resetBtn" onclick="resetPage()">New Test</button>
 	`;
 

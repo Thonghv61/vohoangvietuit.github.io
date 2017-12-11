@@ -6,16 +6,16 @@
 		//var id = $(this).data('recordId');
 		console.log("submited");
 		$modalDiv.addClass('loading');
-		$.post('/api/record/submit').then(function() {
-			$modalDiv.modal('hide').removeClass('loading');
-		});
+		// $.post('/api/record/submit').then(function() {
+		// 	$modalDiv.modal('hide').removeClass('loading');
+		// });
 
 		// Test
 		$modalDiv.modal('hide').removeClass('loading');
-		checkAnswer();
-		renderResult(dataToeic);
-		//finishToeic();
-
+		// checkAnswer();
+		// renderResult(dataToeic);
+		finishToeic();
+		resetDataToeic();
 	});
 
 	// Bind click to Reset button within popup and call func reset test
