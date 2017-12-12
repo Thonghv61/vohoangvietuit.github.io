@@ -123,6 +123,7 @@ p.note {
     text-align: left;
     height: 650px;
     overflow: auto;
+    position: relative;
 }
 
 .ques-no {

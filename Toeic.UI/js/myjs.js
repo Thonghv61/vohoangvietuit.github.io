@@ -12,10 +12,7 @@
 
 		// Test
 		$modalDiv.modal('hide').removeClass('loading');
-		// checkAnswer();
-		// renderResult(dataToeic);
 		finishToeic();
-		resetDataToeic();
 	});
 
 	// Bind click to Reset button within popup and call func reset test

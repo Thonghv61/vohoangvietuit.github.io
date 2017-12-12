@@ -475,6 +475,9 @@ function markColorAnswerSheet(firstParam, secondParam) {
 		return;
 	}
 
+	// Auto Scroll AnswerSheet
+	answer_sheet.scrollTop = _('answer_form_' + firstParam).offsetTop - 60;
+	//console.log("answer_sheet.scrollTop", selectedQuestion.scrollHeight);
 	// selectedQuestion.classList.add("mark-color");
 }
 
@@ -511,6 +514,7 @@ function timer(duration, blockId, func) {
 function finishToeic() {
 	checkAnswer();
 	renderResult(dataToeic);
+	resetDataToeic();
 }
 
 function resetPage() {
