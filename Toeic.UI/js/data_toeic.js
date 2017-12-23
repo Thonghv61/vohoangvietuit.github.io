@@ -36,6 +36,127 @@ const dataToeic = {
 				"feedbackCorrect": "Corret",
 				"feedbackInCorrect": "Incorrect"
 			},
+			{
+				"id": "3a",
+				"poolName": "part1",
+				"question": "image=media/part1/3.jpgaudio=media/part1/3.mp3",
+				"answers": {
+					"answerA": "",
+					"answerB": "",
+					"answerC": "",
+					"answerD": "",
+				},
+				"correctAnswer": "C",
+				"objective": "",
+				"feedbackCorrect": "Corret",
+				"feedbackInCorrect": "Incorrect"
+			},
+			{
+				"id": "4a",
+				"poolName": "part1",
+				"question": "image=media/part1/4.jpgaudio=media/part1/4.mp3",
+				"answers": {
+					"answerA": "",
+					"answerB": "",
+					"answerC": "",
+					"answerD": "",
+				},
+				"correctAnswer": "B",
+				"objective": "",
+				"feedbackCorrect": "Corret",
+				"feedbackInCorrect": "Incorrect"
+			},
+			{
+				"id": "5a",
+				"poolName": "part1",
+				"question": "image=media/part1/5.jpgaudio=media/part1/5.mp3",
+				"answers": {
+					"answerA": "",
+					"answerB": "",
+					"answerC": "",
+					"answerD": "",
+				},
+				"correctAnswer": "D",
+				"objective": "",
+				"feedbackCorrect": "Corret",
+				"feedbackInCorrect": "Incorrect"
+			},
+			{
+				"id": "6a",
+				"poolName": "part1",
+				"question": "image=media/part1/6.jpgaudio=media/part1/6.mp3",
+				"answers": {
+					"answerA": "",
+					"answerB": "",
+					"answerC": "",
+					"answerD": "",
+				},
+				"correctAnswer": "B",
+				"objective": "",
+				"feedbackCorrect": "Corret",
+				"feedbackInCorrect": "Incorrect"
+			},
+			{
+				"id": "7a",
+				"poolName": "part1",
+				"question": "image=media/part1/7.jpgaudio=media/part1/7.mp3",
+				"answers": {
+					"answerA": "",
+					"answerB": "",
+					"answerC": "",
+					"answerD": "",
+				},
+				"correctAnswer": "C",
+				"objective": "",
+				"feedbackCorrect": "Corret",
+				"feedbackInCorrect": "Incorrect"
+			},
+			{
+				"id": "8a",
+				"poolName": "part1",
+				"question": "image=media/part1/8.jpgaudio=media/part1/8.mp3",
+				"answers": {
+					"answerA": "",
+					"answerB": "",
+					"answerC": "",
+					"answerD": "",
+				},
+				"correctAnswer": "D",
+				"objective": "",
+				"feedbackCorrect": "Corret",
+				"feedbackInCorrect": "Incorrect"
+			},
+			{
+				"id": "9a",
+				"poolName": "part1",
+				"question": "image=media/part1/9.jpgaudio=media/part1/9.mp3",
+				"answers": {
+					"answerA": "",
+					"answerB": "",
+					"answerC": "",
+					"answerD": "",
+				},
+				"correctAnswer": "D",
+				"objective": "",
+				"feedbackCorrect": "Corret",
+				"feedbackInCorrect": "Incorrect"
+			},
+			{
+				"id": "10a",
+				"poolName": "part1",
+				"question": "image=media/part1/10.jpgaudio=media/part1/10.mp3",
+				"answers": {
+					"answerA": "",
+					"answerB": "",
+					"answerC": "",
+					"answerD": "",
+				},
+				"correctAnswer": "B",
+				"objective": "",
+				"feedbackCorrect": "Corret",
+				"feedbackInCorrect": "Incorrect"
+			},
+
 		],
 		part2: [
 			{
@@ -57,6 +178,126 @@ const dataToeic = {
 				"id": "4",
 				"poolName": "part2",
 				"question": "audio=media/part2/2.mp3",
+				"answers": {
+					"answerA": "",
+					"answerB": "",
+					"answerC": "",
+					"answerD": "",
+				},
+				"correctAnswer": "B",
+				"objective": "",
+				"feedbackCorrect": "Corret",
+				"feedbackInCorrect": "Incorrect"
+			},
+			{
+				"id": "3b",
+				"poolName": "part2",
+				"question": "audio=media/part2/3.mp3",
+				"answers": {
+					"answerA": "",
+					"answerB": "",
+					"answerC": "",
+					"answerD": "",
+				},
+				"correctAnswer": "A",
+				"objective": "",
+				"feedbackCorrect": "Corret",
+				"feedbackInCorrect": "Incorrect"
+			},
+			{
+				"id": "4b",
+				"poolName": "part2",
+				"question": "audio=media/part2/4.mp3",
+				"answers": {
+					"answerA": "",
+					"answerB": "",
+					"answerC": "",
+					"answerD": "",
+				},
+				"correctAnswer": "B",
+				"objective": "",
+				"feedbackCorrect": "Corret",
+				"feedbackInCorrect": "Incorrect"
+			},
+			{
+				"id": "5b",
+				"poolName": "part2",
+				"question": "audio=media/part2/5.mp3",
+				"answers": {
+					"answerA": "",
+					"answerB": "",
+					"answerC": "",
+					"answerD": "",
+				},
+				"correctAnswer": "A",
+				"objective": "",
+				"feedbackCorrect": "Corret",
+				"feedbackInCorrect": "Incorrect"
+			},
+			{
+				"id": "6b",
+				"poolName": "part2",
+				"question": "audio=media/part2/6.mp3",
+				"answers": {
+					"answerA": "",
+					"answerB": "",
+					"answerC": "",
+					"answerD": "",
+				},
+				"correctAnswer": "C",
+				"objective": "",
+				"feedbackCorrect": "Corret",
+				"feedbackInCorrect": "Incorrect"
+			},
+			{
+				"id": "7b",
+				"poolName": "part2",
+				"question": "audio=media/part2/7.mp3",
+				"answers": {
+					"answerA": "",
+					"answerB": "",
+					"answerC": "",
+					"answerD": "",
+				},
+				"correctAnswer": "C",
+				"objective": "",
+				"feedbackCorrect": "Corret",
+				"feedbackInCorrect": "Incorrect"
+			},
+			{
+				"id": "8b",
+				"poolName": "part2",
+				"question": "audio=media/part2/8.mp3",
+				"answers": {
+					"answerA": "",
+					"answerB": "",
+					"answerC": "",
+					"answerD": "",
+				},
+				"correctAnswer": "C",
+				"objective": "",
+				"feedbackCorrect": "Corret",
+				"feedbackInCorrect": "Incorrect"
+			},
+			{
+				"id": "9b",
+				"poolName": "part2",
+				"question": "audio=media/part2/9.mp3",
+				"answers": {
+					"answerA": "",
+					"answerB": "",
+					"answerC": "",
+					"answerD": "",
+				},
+				"correctAnswer": "B",
+				"objective": "",
+				"feedbackCorrect": "Corret",
+				"feedbackInCorrect": "Incorrect"
+			},
+			{
+				"id": "10b",
+				"poolName": "part2",
+				"question": "audio=media/part2/10.mp3",
 				"answers": {
 					"answerA": "",
 					"answerB": "",
@@ -417,7 +658,79 @@ const dataToeic = {
 					"feedbackCorrect": "Corret",
 					"feedbackInCorrect": "Incorrect"
 				},
-			]
+			],
+			[
+				{
+					"id": "23f",
+					"poolName": "part6",
+					"question": `Headhunting firms are increasingly a powerlul -------- lor many companies to find
+								scarce high level professionals. 
+								Such headhunters secure and justify their lees by searching lor the most
+								competent candidate in all areas, including the client's competitors. When a list
+								of promising candidates is obtained, a headhunter will contact the candidates on
+								the list to ------- career details and make sure he or she is still interested in the job.
+								After this lengthy process is completed, the list will be ------- down to a small
+								number of interested candidates with the best capabilities. Only the list oi the top candidates Will be
+								presented to their client lirm,who will then contact you and negotiate terms with
+								you in person.`,
+					"answers": {
+						"answerA": "",
+						"answerB": "",
+						"answerC": "",
+						"answerD": "",
+					},
+					"correctAnswer": "",
+					"objective": "6.2",
+					"feedbackCorrect": "",
+					"feedbackInCorrect": ""
+				},
+				{
+					"id": "24f",
+					"poolName": "part6",
+					"question": "",
+					"answers": {
+						"answerA": "Tool",
+						"answerB": "Behavior",
+						"answerC": "Content",
+						"answerD": "Reason",
+					},
+					"correctAnswer": "A",
+					"objective": "6.2.1",
+					"feedbackCorrect": "Corret",
+					"feedbackInCorrect": "Incorrect"
+				},
+				{
+					"id": "25f",
+					"poolName": "part6",
+					"question": "",
+					"answers": {
+						"answerA": "Verify",
+						"answerB": "feature",
+						"answerC": "condense",
+						"answerD": "notify",
+					},
+					"correctAnswer": "A",
+					"objective": "6.2.2",
+					"feedbackCorrect": "Corret",
+					"feedbackInCorrect": "Incorrect"
+				},
+				{
+					"id": "26f",
+					"poolName": "part6",
+					"question": "",
+					"answers": {
+						"answerA": "Short",
+						"answerB": "Shorting",
+						"answerC": "shortened",
+						"answerD": "shorten",
+					},
+					"correctAnswer": "C",
+					"objective": "6.2.3",
+					"feedbackCorrect": "Corret",
+					"feedbackInCorrect": "Incorrect"
+				},
+			],
+
 		],
 		part7: [
 			[
@@ -466,7 +779,64 @@ const dataToeic = {
 					"feedbackCorrect": "Corret",
 					"feedbackInCorrect": "Incorrect"
 				}
-			]
+			],
+			[
+				{
+					"id": "27g",
+					"poolName": "part7",
+					"question": "image=media/part7/2.jpg",
+					"answers": {
+						"answerA": "",
+						"answerB": "",
+						"answerC": "",
+						"answerD": "",
+					},
+					"correctAnswer": "",
+					"objective": "7.2",
+					"feedbackCorrect": "",
+					"feedbackInCorrect": ""
+				},
+				{
+					"id": "28g",
+					"poolName": "part7",
+					"question": "What is being advertised?",
+					"answers": {
+						"answerA": "Travel postcards",
+						"answerB": "Photograph albums",
+						"answerC": "Birthday cards",
+						"answerD": "Personalized calendars",
+					},
+					"correctAnswer": "D",
+					"objective": "7.2.1",
+					"feedbackCorrect": "Corret",
+					"feedbackInCorrect": "Incorrect"
+				},
+				{
+					"id": "29g",
+					"poolName": "part7",
+					"question": "According to the advertisement, what will the consultant do?",
+					"answers": {
+						"answerA": "Provide free price estimates",
+						"answerB": "Give advice about design options",
+						"answerC": "Photograph family members",
+						"answerD": "Create an online gallery of photographs",
+					},
+					"correctAnswer": "B",
+					"objective": "7.2.2",
+					"feedbackCorrect": "Corret",
+					"feedbackInCorrect": "Incorrect"
+				}
+			],
+
 		],
 	},
+};
+
+const suggestComment = {
+	bad: "So bad, Your test is disappointing",
+	normal: "Normal",
+	good: "Congratulations, You did a great exam",
+	improve: "You should improve ",
+	improveListening: "Improve your listening skill",
+	improveReading: "Improve your reading skill",
 };

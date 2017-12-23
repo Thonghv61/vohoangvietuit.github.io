@@ -1,21 +1,25 @@
-var dataResult = [
-    { label: "Part 1", value: 25},
-    { label: "Part 2", value: 65},
-    { label: "Part 3", value: 55},
-    { label: "Part 4", value: 75},
-    { label: "Part 5", value: 55},
-    { label: "Part 6", value: 85},
-    { label: "Part 7", value: 5},
-];
+
+function drawScoreChart() {
+    var dataResult = [
+        { label: "Part 1", value: (correctPart.part1/lengthPartAll.part1)*100},
+        { label: "Part 2", value: (correctPart.part2/lengthPartAll.part2)*100},
+        { label: "Part 3", value: (correctPart.part3/lengthPartAll.part3)*100},
+        { label: "Part 4", value: (correctPart.part4/lengthPartAll.part4)*100},
+        { label: "Part 5", value: (correctPart.part5/lengthPartAll.part5)*100},
+        { label: "Part 6", value: (correctPart.part6/lengthPartAll.part6)*100},
+        { label: "Part 7", value: (correctPart.part7/lengthPartAll.part7)*100},
+    ];
+    drawRadarChart(dataResult);
+}
 
 //Info init radar chart
 var infoRadarChart = {
-    width: 800,
-    height: 650,
+    width: 700,
+    height: 550,
     divId: "#chart_radar"
 };
 
-var titleChart = 'Show score each part toeic';
+var titleChart = 'Show score percent each part toeic';
 
 //Info for data visited
 var dataReview = {
@@ -24,16 +28,16 @@ var dataReview = {
     value: 0
 };
 
-drawRadarChart(dataResult);
+//drawRadarChart(dataResult);
 
 //Draw radar chart
 function drawRadarChart(data) {
     // Drawing area and the margins and color sequence
     var margin = {
-        top: 70,
+        top: 120,
         right: 20,
         bottom: 40,
-        left: 40
+        left: 10
     };
     w = infoRadarChart.width;
     h = infoRadarChart.height - margin.top - margin.bottom;
@@ -60,17 +64,18 @@ function drawRadarChart(data) {
         .attr("transform", "translate(" + centerXPos + "," + centerYPos + ")");
 
     // read data csv, verify value, find maximum value
-    var maxValue = 0;
-    data.forEach(function(d) {
-        d.value = +d.value;
-        if (d.value > maxValue)
-            maxValue = d.value;
-    });
+    // var maxValue = 0;
+    // data.forEach(function(d) {
+    //     d.value = +d.value;
+    //     if (d.value > maxValue)
+    //         maxValue = d.value;
+    // });
 
-    var topValue = 1.5 * maxValue;
+    //var topValue = 1.5 * maxValue;
+    var topValue =  1 * 100;
 
     var ticks = [];
-    for (i = 0; i < 5; i++) {
+    for (i = 0; i < 6; i++) {
         ticks[i] = Math.round(topValue * i / 5 * 10) / 10;
     }
     radius.domain([0, topValue]);
@@ -119,7 +124,9 @@ function drawRadarChart(data) {
         })
         .attr("text-anchor", "middle")
         .attr("transform", function(d, i) {
-            return "rotate(" + (90 - (i * 360 / data.length)) + ")";
+            newX =  25 * Math.sin(i * 2 * Math.PI / data.length);
+            newY =  15 * -1 * Math.cos(i * 2 * Math.PI / data.length);
+            return "rotate(" + (90 - (i * 360 / data.length)) + ")translate(" + newX + "," + newY + ")";
         });
 
     //
@@ -138,13 +145,11 @@ function drawRadarChart(data) {
             return +d[name];
         });
     });
-    console.log("lines :" + typeof(lines) + lines);
 
     var arrpoint = (data.concat(data[0])).map(function(d) {
             return d.value;
         });
 
-    console.log("arrpoint :" + typeof(arrpoint) + arrpoint);
 
     //create the correct path element 
     var sets = svg.selectAll(".series")
@@ -228,7 +233,7 @@ function drawRadarChart(data) {
 
     // Create title radar chart
     var title = d3.select("svg").append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+        .attr("transform", "translate(" + margin.left + "," + (margin.top - 15) + ")")
         .attr("class", "title");
 
     title.append("text")

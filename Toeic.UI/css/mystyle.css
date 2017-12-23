@@ -3,6 +3,21 @@
     padding: 0;
 }
 
+span.score-toeic {
+    font-weight: normal;
+    background: #f67b7b85;
+    display: inline-block;
+    padding: 5px;
+}
+
+.info-result {
+    margin: 0 25px;
+}
+
+.info-result h2 {
+    font-weight: bold;
+}
+
 .mark-color {
     background: #c7e5ff;
 }

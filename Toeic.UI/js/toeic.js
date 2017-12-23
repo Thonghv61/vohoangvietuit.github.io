@@ -23,6 +23,7 @@ var indexQuestion = 0;
 var arrayRealQuestion = getRealQuestion(dataToeic.data);
 var isStart = false;
 var TIME_REMAINING_MINUTES = 20;
+var TIME_REMAINING_QUESTION_SECOND = 20;
 var counterTimeToeic;
 var arrSelectedAnswers = [];
 var correctListening = 0;
@@ -31,6 +32,25 @@ var arrScoreListening = [5, 5, 5, 5, 5, 5, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50
 var arrScoreReading = [5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 60, 65, 70, 80, 85, 90, 95, 100, 110, 115, 120, 125, 130, 140, 145, 150, 160, 165, 170, 175, 180, 190, 195, 200, 210, 215, 220, 225, 230, 235, 240, 250, 255, 260, 265, 270, 280, 285, 290, 300, 305, 310, 320, 325, 330, 335, 340, 350, 355, 360, 365, 370, 380, 385, 390, 395, 400, 405, 410, 415, 420, 425, 430, 435, 445, 450, 455, 465, 470, 480, 485, 490, 495, 495, 495, 495];
 var scoreTOEIC = 0;
 //scoreTOEIC = parseInt(arrScoreListening[correctListening]) + parseInt(arrScoreReading[correctReading]);
+var	correctPart = {
+	part1: 0,
+	part2: 0,
+	part3: 0,
+	part4: 0,
+	part5: 0,
+	part6: 0,
+	part7: 0,
+};
+
+var lengthPartAll = {
+	part1: 0,
+	part2: 0,
+	part3: 0,
+	part4: 0,
+	part5: 0,
+	part6: 0,
+	part7: 0,
+};
 
 // Event btn
 start_test.addEventListener("click", function(){
@@ -67,6 +87,7 @@ function initData() {
 		indexQuestion = localData.indexQuestion;
 		arrSelectedAnswers = localData.arrSelectedAnswers;
 	}
+	getLengthEachPart();
 }
 
 function startTest() {
@@ -161,8 +182,8 @@ function renderForSingleQuestion(data) {
 		<div class="test-box">
 			<div class="toeic-index">
 				<h4 id="question_number">Question ${getRealIndex(arrayRealQuestion, data)}</h4>
-				<div class="time-remain-question" id="time_question">
-					<!-- remaining <span >00:00</span> -->
+				<div class="time-remain-question">
+					${indexPart < 5 ? `remaining <span class="time-question" id="time_question"></span>`: ''}
 				</div>
 			</div>
 			<div class="toiec-question">
@@ -230,7 +251,7 @@ function renderForMultiQuestion(data) {
 			<div class="toeic-index">
 				<h4 id="question_number_multi">Question ${getRealIndex(arrayRealQuestion, childQuestion[0])} - ${getRealIndex(arrayRealQuestion, childQuestion[childQuestion.length - 1])} </h4>
 				<div class="time-remain-question">
-					<!-- remaining <span class="time-question">00:00</span> -->
+					${indexPart < 5 ? `remaining <span class="time-question" id="time_question"></span>`: ''}
 				</div>
 			</div>
 			<div class="toiec-question">
@@ -393,15 +414,19 @@ function setTitlePart(poolName) {
 	switch (poolName) {
 		case "part1":
 			titlePart = "Part 1: Picture description";
+			TIME_REMAINING_QUESTION_SECOND = 26;
 			break;
 		case "part2":
 			titlePart = "Part 2: Question and Response";
+			TIME_REMAINING_QUESTION_SECOND = 26;
 			break;
 		case "part3":
 			titlePart = "Part 3: Short conversation";
+			TIME_REMAINING_QUESTION_SECOND = 83;
 			break;
 		case "part4":
 			titlePart = "Part 4: Short talk";
+			TIME_REMAINING_QUESTION_SECOND = 91;
 			break;
 		case "part5":
 			titlePart = "Part 5: Incomplete sentences";
@@ -498,6 +523,10 @@ function timer(duration, blockId, func) {
 			clearInterval(counterTimeToeic);
 			func();
 		}
+		//auto next
+		if (indexPart < 5) {
+			autoNextQuestion();			
+		}
 
 	    // Put the object into storage
 	    var infoMyTest = {
@@ -511,10 +540,22 @@ function timer(duration, blockId, func) {
 	}, 1000);
 }
 
+function autoNextQuestion() {
+	TIME_REMAINING_QUESTION_SECOND--;
+	if (TIME_REMAINING_QUESTION_SECOND < 0) {
+		TIME_REMAINING_QUESTION_SECOND = 20;
+		nextQuestion();
+	}
+	_("time_question").innerHTML = TIME_REMAINING_QUESTION_SECOND;
+}
+
+
 function finishToeic() {
 	checkAnswer();
 	renderResult(dataToeic);
 	resetDataToeic();
+	console.log('correctPart', correctPart);
+	console.log('getLengthEachPart', lengthPartAll);
 }
 
 function resetPage() {
@@ -568,6 +609,7 @@ function checkAnswer() {
 			let question = arrayRealQuestion.find(ques => ques.id === answer.id);
 			if (question) {
 				if (question.correctAnswer == answer.selectedAnswer) {
+					scoreEachPart(answer.pool);
 					if (answer.pool == 'part1' || answer.pool == 'part2' || answer.pool == 'part3' || answer.pool == 'part4') {
 						correctListening++;
 					} else if (answer.pool == 'part5' || answer.pool == 'part6' || answer.pool == 'part7') {
@@ -583,19 +625,114 @@ function checkAnswer() {
 	//console.log("correct ", correctListening + correctReading);
 }
 
+function scoreEachPart(poolName) {
+	switch (poolName) {
+		case 'part1': 
+			correctPart.part1 += 1;
+			break; 
+		case 'part2': 
+			correctPart.part2 += 1;
+			break; 
+		case 'part3': 
+			correctPart.part3 += 1;
+			break; 
+		case 'part4': 
+			correctPart.part4 += 1;
+			break; 
+		case 'part5': 
+			correctPart.part5 += 1;
+			break; 
+		case 'part6': 
+			correctPart.part6 += 1;
+			break; 
+		case 'part7': 
+			correctPart.part7 += 1;
+			break; 
+	}
+}
+
+function getLengthEachPart() {
+	arrayRealQuestion.forEach(item => {
+		switch (item.poolName) {
+			case 'part1': 
+				lengthPartAll.part1 += 1;
+				break; 
+			case 'part2': 
+				lengthPartAll.part2 += 1;
+				break; 
+			case 'part3': 
+				lengthPartAll.part3 += 1;
+				break; 
+			case 'part4': 
+				lengthPartAll.part4 += 1;
+				break; 
+			case 'part5': 
+				lengthPartAll.part5 += 1;
+				break; 
+			case 'part6': 
+				lengthPartAll.part6 += 1;
+				break; 
+			case 'part7': 
+				lengthPartAll.part7 += 1;
+				break; 
+		}
+	});
+}
+
 function renderResult(data) {
 	test_page.classList.add("hidden");
 	result_page.classList.remove("hidden");
 
 	result_page.innerHTML = `
-		<p><b>User:</b> ${data.infoStudent}</p>
-		<p><b>Day Begin:</b> ${data.dayBegin}</p>
-		<p><b>Day End:</b> ${data.dayEnd}</p>
-		<p><b>Assigment:</b> ${data.assigment}</p>
-		<p><b>Correct Listening:</b> ${correctListening} - <b>Correct Reading:</b> ${correctReading}</p>
-		<h2>SCORE ${scoreTOEIC}</h2>
-		<h3>Comment: You are so so lazy ^^</h3>
-		<button type="button" class="btn btn-danger" id="resetBtn" onclick="resetPage()">New Test</button>
+		<div class="row">
+			<div class="col-sm-6">
+				<div id="chart_radar"></div>
+			</div>
+			<div class="col-sm-6">
+				<div class="info-result">
+					<p><b>User:</b> ${data.infoStudent}</p>
+					<p><b>Day Begin:</b> ${data.dayBegin}</p>
+					<p><b>Day End:</b> ${data.dayEnd}</p>
+					<p><b>Assigment:</b> ${data.assigment}</p>
+					<p><b>Correct Listening:</b> ${correctListening} - <b>Correct Reading:</b> ${correctReading}</p>
+					<h2>SCORE <span class="score-toeic">${scoreTOEIC}</span></h2>
+					<h3><b>Evaluate:</b> ${evaluateTest()}</h3>
+					<h3>${suggestCommentFunc()}</h3>
+					<button type="button" class="btn btn-danger" id="resetBtn" onclick="resetPage()">New Test</button>
+				</div>
+			</div>
+		</div>
+
 	`;
 
+	drawScoreChart();
+}
+
+function suggestCommentFunc() {
+	let text = '';
+	for (var i = 1; i <= 7; i++) {
+		let percentPart = (correctPart['part'+i]/lengthPartAll['part'+i])*100;
+		if (percentPart < 50) {
+			text += "Part " + i + ", ";
+		}
+	}
+
+	return suggestComment.improve + text;
+}
+
+function evaluateTest() {
+	let text = '';
+	if (correctListening > 50 && correctReading > 50) {
+		text = suggestComment.good;
+	} else if (correctListening < 50 && correctReading < 50) {
+		text = suggestComment.bad;
+	} else if (correctListening < 50 && correctReading > 50) {
+		text = suggestComment.improveListening;
+	} else if (correctListening > 50 && correctReading < 50) {
+		text = suggestComment.improveReading;
+	} else {
+		text = suggestComment.normal;
+	}
+
+	return text;
 }
