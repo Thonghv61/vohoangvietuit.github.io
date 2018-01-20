@@ -17,12 +17,16 @@ var multi_question_area = _("multi_question");
 var toeicForm = document.getElementsByClassName("toeic-form");
 
 // Init
+var mainData = parseMainData(assessmentData);
+
+//dataToeic.data = mainData;
+
 var localData = JSON.parse(localStorage.getItem('infoMyTest'));
 var indexPart = 1;
 var indexQuestion = 0;
-var arrayRealQuestion = getRealQuestion(dataToeic.data);
+var arrayRealQuestion = getRealQuestion(mainData);
 var isStart = false;
-var TIME_REMAINING_MINUTES = 20;
+var TIME_REMAINING_MINUTES = 12;
 var TIME_REMAINING_QUESTION_SECOND = 20;
 var counterTimeToeic;
 var arrSelectedAnswers = [];
@@ -31,6 +35,7 @@ var correctReading = 0;
 var arrScoreListening = [5, 5, 5, 5, 5, 5, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 110, 115, 120, 125, 130, 135, 140, 145, 150, 160, 165, 170, 175, 180, 185, 190, 195, 200, 210, 215, 220, 230, 240, 245, 250, 255, 260, 270, 275, 280, 290, 295, 300, 310, 315, 320, 325, 330, 340, 345, 350, 360, 365, 370, 380, 385, 390, 395, 400, 405, 410, 420, 425, 430, 440, 445, 450, 460, 465, 470, 475, 480, 485, 490, 495, 495, 495, 495, 495, 495, 495, 495, 495, 495, 495];
 var arrScoreReading = [5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 60, 65, 70, 80, 85, 90, 95, 100, 110, 115, 120, 125, 130, 140, 145, 150, 160, 165, 170, 175, 180, 190, 195, 200, 210, 215, 220, 225, 230, 235, 240, 250, 255, 260, 265, 270, 280, 285, 290, 300, 305, 310, 320, 325, 330, 335, 340, 350, 355, 360, 365, 370, 380, 385, 390, 395, 400, 405, 410, 415, 420, 425, 430, 435, 445, 450, 455, 465, 470, 480, 485, 490, 495, 495, 495, 495];
 var scoreTOEIC = 0;
+var choseAssessment;
 //scoreTOEIC = parseInt(arrScoreListening[correctListening]) + parseInt(arrScoreReading[correctReading]);
 var	correctPart = {
 	part1: 0,
@@ -72,7 +77,10 @@ backBtn.addEventListener("click", function() {
 // });
 
 // START
-renderInfoToeic(dataToeic);
+if (mainData) {
+	renderInfoToeic(mainData);
+}
+
 
 // =====================Function=================== //
 
@@ -81,6 +89,7 @@ function _(x) {
 }
 
 function initData() {
+	console.log('arrayRealQuestion', arrayRealQuestion);
 	if (localData) {
 		TIME_REMAINING_MINUTES = localData.timeLeft;
 		indexPart = localData.indexPart;
@@ -101,7 +110,7 @@ function startTest() {
 		// Render answer sheet
 		renderAnswerSheet(arrayRealQuestion);			
 		// Render toeic area
-		renderToeic(dataToeic);
+		renderToeic(mainData);
 
 	} else {
 		start_page.classList.remove("hidden");
@@ -109,7 +118,7 @@ function startTest() {
 	}
 }
 
-function renderToeic(dataAll) {
+function renderToeic(data) {
 	// End Test
 	if (indexPart > 7 ) {
 		finishToeic();
@@ -117,7 +126,7 @@ function renderToeic(dataAll) {
 	}
 
 	// Data part question array
-	var dataQuestion = dataAll.data["part" + indexPart][indexQuestion];
+	var dataQuestion = data["part" + indexPart][indexQuestion];
 
 	// Render part question
 	if (indexPart == 1 || indexPart == 2 || indexPart == 5) {
@@ -134,7 +143,7 @@ function renderToeic(dataAll) {
 		backBtn.classList.add("hidden");
 	}
 
-	if ((indexQuestion == dataToeic.data["part" + indexPart].length -1) && indexPart == 7) {
+	if ((indexQuestion == mainData["part" + indexPart].length -1) && indexPart == 7) {
 		nextBtn.classList.add("hidden");
 		backBtn.classList.remove("hidden");
 		submitBtn.classList.remove("hidden");
@@ -157,12 +166,19 @@ function renderInfoToeic(data) {
 		newTestBtn.classList.add("hidden");
 	}
 
-	info_toeic.innerHTML = `
-		<p><b>User:</b> ${data.infoStudent}</p>
-		<p><b>Day Begin:</b> ${data.dayBegin}</p>
-		<p><b>Day End:</b> ${data.dayEnd}</p>
-		<p><b>Assigment:</b> ${data.assigment}</p>
-	`;
+	var idAssessment = 3;
+	choseAssessment = listAssessment.find(item => item.assessmentId == idAssessment);
+	if (choseAssessment) {
+		console.log("choseAssessment ", choseAssessment);
+		TIME_REMAINING_MINUTES = choseAssessment.timeLimit_hour * 60 + choseAssessment.timeLimit_minute;
+		info_toeic.innerHTML = `
+			<p><b>Assigment:</b> ${choseAssessment.assessmentTitle}</p>
+			<p><b>Due Day:</b> ${choseAssessment.dueDate}</p>
+			<p><b>Time Limit:</b> ${choseAssessment.timeLimit_hour} hr</p>
+		`;		
+	}
+
+
 }
 
 // For part 1, 2, 5
@@ -375,13 +391,13 @@ function getRealQuestion(data) {
 	var arrayRealQuestion = [];
 
 	// Logic
-	loopQuestionSingle(data.part1, arrayRealQuestion);
-	loopQuestionSingle(data.part2, arrayRealQuestion);
-	loopQuestionMulti(data.part3, arrayRealQuestion);
-	loopQuestionMulti(data.part4, arrayRealQuestion);
-	loopQuestionSingle(data.part5, arrayRealQuestion);
-	loopQuestionMulti(data.part6, arrayRealQuestion);
-	loopQuestionMulti(data.part7, arrayRealQuestion);
+	if(data.part1) loopQuestionSingle(data.part1, arrayRealQuestion);
+	if(data.part2) loopQuestionSingle(data.part2, arrayRealQuestion);
+	if(data.part3) loopQuestionMulti(data.part3, arrayRealQuestion);
+	if(data.part4) loopQuestionMulti(data.part4, arrayRealQuestion);
+	if(data.part5) loopQuestionSingle(data.part5, arrayRealQuestion);
+	if(data.part6) loopQuestionMulti(data.part6, arrayRealQuestion);
+	if(data.part7) loopQuestionMulti(data.part7, arrayRealQuestion);
 
 	function loopQuestionSingle(part, array) {
 		part.forEach(item => {
@@ -411,30 +427,31 @@ function getRealIndex(data, value) {
 
 function setTitlePart(poolName) {
 	var titlePart;
-	switch (poolName) {
-		case "part1":
+	let partName = poolName.slice(-1);
+	switch (partName) {
+		case "1":
 			titlePart = "Part 1: Picture description";
 			TIME_REMAINING_QUESTION_SECOND = 26;
 			break;
-		case "part2":
+		case "2":
 			titlePart = "Part 2: Question and Response";
 			TIME_REMAINING_QUESTION_SECOND = 26;
 			break;
-		case "part3":
+		case "3":
 			titlePart = "Part 3: Short conversation";
 			TIME_REMAINING_QUESTION_SECOND = 83;
 			break;
-		case "part4":
+		case "4":
 			titlePart = "Part 4: Short talk";
 			TIME_REMAINING_QUESTION_SECOND = 91;
 			break;
-		case "part5":
+		case "5":
 			titlePart = "Part 5: Incomplete sentences";
 			break;
-		case "part6":
+		case "6":
 			titlePart = "Part 6: Text completion";
 			break;
-		case "part7":
+		case "7":
 			titlePart = "Part 7: Passages";
 			break;
 		default:
@@ -444,8 +461,9 @@ function setTitlePart(poolName) {
 	return titlePart;
 }
 
+// For go to next question
 function nextQuestion() {
-	let dataPart = dataToeic.data["part" + indexPart];
+	let dataPart = mainData["part" + indexPart];
 	let lengthPart = dataPart.length;	
 	indexQuestion++;
 
@@ -458,14 +476,12 @@ function nextQuestion() {
 		nextBtn.classList.add("hidden");
 		submitBtn.classList.remove("hidden");
 	}
-	renderToeic(dataToeic);
-
-	// console.log('indexQuestion', indexQuestion);
-	// console.log('indexPart', indexPart);
+	renderToeic(mainData);
 }
 
+// For go to previous question
 function prevQuestion() {
-	let dataPart = dataToeic.data["part" + indexPart];
+	let dataPart = mainData["part" + indexPart];
 	let lengthPart = dataPart.length;
 	nextBtn.classList.remove("hidden");
 	submitBtn.classList.add("hidden");
@@ -476,7 +492,7 @@ function prevQuestion() {
 		indexQuestion = lengthPart - 1;
 	}
 
-	renderToeic(dataToeic);
+	renderToeic(mainData);
 }
 
 function markColorAnswerSheet(firstParam, secondParam) {
@@ -502,8 +518,6 @@ function markColorAnswerSheet(firstParam, secondParam) {
 
 	// Auto Scroll AnswerSheet
 	answer_sheet.scrollTop = _('answer_form_' + firstParam).offsetTop - 60;
-	//console.log("answer_sheet.scrollTop", selectedQuestion.scrollHeight);
-	// selectedQuestion.classList.add("mark-color");
 }
 
 function timer(duration, blockId, func) {
@@ -530,7 +544,7 @@ function timer(duration, blockId, func) {
 
 	    // Put the object into storage
 	    var infoMyTest = {
-	    	infoData: dataToeic,
+	    	infoData: mainData,
 			indexPart: indexPart,
 			timeLeft: minutes,
 			indexQuestion: indexQuestion,
@@ -552,7 +566,7 @@ function autoNextQuestion() {
 
 function finishToeic() {
 	checkAnswer();
-	renderResult(dataToeic);
+	renderResult(mainData);
 	resetDataToeic();
 	console.log('correctPart', correctPart);
 	console.log('getLengthEachPart', lengthPartAll);
@@ -567,7 +581,7 @@ function resetPage() {
 	test_page.classList.add("hidden");
 	result_page.classList.add("hidden");
 
-	renderInfoToeic(dataToeic);
+	renderInfoToeic(mainData);
 	location.reload();
 }
 
@@ -600,7 +614,26 @@ function getCheckedRadio(id, value, pool) {
     	selectedAnswer: value
     });	
 
-    //console.log("arrSelectedAnswers", arrSelectedAnswers);
+    // Submit ajax to server
+	$.ajax({
+		type : "POST",
+		contentType : "application/json",
+		url : "submit",
+		data : JSON.stringify(arrSelectedAnswers),
+		dataType : 'json',
+		timeout : 100000,
+		success : function(data) {
+			console.log("SUCCESS: ", data);
+		},
+		error : function(e) {
+			console.log("ERROR: ", e);
+		},
+		done : function(e) {
+			console.log("DONE");
+		}
+	});
+
+    console.log("arrSelectedAnswers", arrSelectedAnswers);
 }
 
 function checkAnswer() {
@@ -610,9 +643,10 @@ function checkAnswer() {
 			if (question) {
 				if (question.correctAnswer == answer.selectedAnswer) {
 					scoreEachPart(answer.pool);
-					if (answer.pool == 'part1' || answer.pool == 'part2' || answer.pool == 'part3' || answer.pool == 'part4') {
+					let partName = answer.pool.slice(-1);
+					if (partName == '1' || partName == '2' || partName == '3' || partName == '4') {
 						correctListening++;
-					} else if (answer.pool == 'part5' || answer.pool == 'part6' || answer.pool == 'part7') {
+					} else if (partName == '5' || partName == '6' || partName == '7') {
 						correctReading++;
 					}
 				}
@@ -626,26 +660,27 @@ function checkAnswer() {
 }
 
 function scoreEachPart(poolName) {
-	switch (poolName) {
-		case 'part1': 
+	let partName = poolName.slice(-1);
+	switch (partName) {
+		case '1': 
 			correctPart.part1 += 1;
 			break; 
-		case 'part2': 
+		case '2': 
 			correctPart.part2 += 1;
 			break; 
-		case 'part3': 
+		case '3': 
 			correctPart.part3 += 1;
 			break; 
-		case 'part4': 
+		case '4': 
 			correctPart.part4 += 1;
 			break; 
-		case 'part5': 
+		case '5': 
 			correctPart.part5 += 1;
 			break; 
-		case 'part6': 
+		case '6': 
 			correctPart.part6 += 1;
 			break; 
-		case 'part7': 
+		case '7': 
 			correctPart.part7 += 1;
 			break; 
 	}
@@ -653,26 +688,27 @@ function scoreEachPart(poolName) {
 
 function getLengthEachPart() {
 	arrayRealQuestion.forEach(item => {
-		switch (item.poolName) {
-			case 'part1': 
+		let partName = item.poolName.slice(-1);
+		switch (partName) {
+			case '1': 
 				lengthPartAll.part1 += 1;
 				break; 
-			case 'part2': 
+			case '2': 
 				lengthPartAll.part2 += 1;
 				break; 
-			case 'part3': 
+			case '3': 
 				lengthPartAll.part3 += 1;
 				break; 
-			case 'part4': 
+			case '4': 
 				lengthPartAll.part4 += 1;
 				break; 
-			case 'part5': 
+			case '5': 
 				lengthPartAll.part5 += 1;
 				break; 
-			case 'part6': 
+			case '6': 
 				lengthPartAll.part6 += 1;
 				break; 
-			case 'part7': 
+			case '7': 
 				lengthPartAll.part7 += 1;
 				break; 
 		}
@@ -690,10 +726,8 @@ function renderResult(data) {
 			</div>
 			<div class="col-sm-6">
 				<div class="info-result">
-					<p><b>User:</b> ${data.infoStudent}</p>
-					<p><b>Day Begin:</b> ${data.dayBegin}</p>
-					<p><b>Day End:</b> ${data.dayEnd}</p>
-					<p><b>Assigment:</b> ${data.assigment}</p>
+					<p><b>Assigment:</b> ${choseAssessment.assessmentTitle}</p>
+					<p><b>Time Limit:</b> ${choseAssessment.timeLimit_hour} hr</p>
 					<p><b>Correct Listening:</b> ${correctListening} - <b>Correct Reading:</b> ${correctReading}</p>
 					<h2>SCORE <span class="score-toeic">${scoreTOEIC}</span></h2>
 					<h3><b>Evaluate:</b> ${evaluateTest()}</h3>

@@ -3,6 +3,14 @@
     padding: 0;
 }
 
+#home {
+    margin-left: 10%;
+}
+
+.assessment-list {
+    margin-left: 2%;
+}
+
 span.score-toeic {
     font-weight: normal;
     background: #f67b7b85;
@@ -54,7 +62,8 @@ span.time-question {
 .for-listening {
     position: relative;
     display: block;
-    width: 400px;
+    max-width: 400px;
+    width: 80%;
     height: 32px;
     margin: 2px 32px;
 }
@@ -63,15 +72,16 @@ span.time-question {
     position: absolute;
     top: 0;
     left: 0px;
-    width: 202px;
+    width: 52%;
     height: 32px;
     z-index: 10;
-    //background: #ff000014;
+    //
+    background: #ff000014;
 }
 
 audio {
     position: absolute;
-    width: 300px;
+    width: 80%;
     height: 32px;
     top: 0;
     left: 0;
@@ -98,7 +108,8 @@ div#time-remain-area {
 }
 
 .pic-question {
-    max-width: 515px;
+    max-width: 490px;
+    max-height: 350px;
 }
 
 input[type="radio"] {}
@@ -136,7 +147,7 @@ p.note {
     padding: 10px 0px 12px 10px;
     /* background: rgba(74, 197, 255, 0.32); */
     text-align: left;
-    height: 650px;
+    height: 500px;
     overflow: auto;
     position: relative;
 }
@@ -167,7 +178,7 @@ p.note {
 }
 
 .radio-inline {
-    margin-right: 20px;
+    margin-right: 5%;
     margin-bottom: 5px;
 }
 
@@ -195,22 +206,26 @@ p.note {
 
 .test-box {
     margin-bottom: 20px;
-    margin-left: 30px;
+    margin-left: 50px;
+    max-height: 500px;
+    overflow: auto;
 }
 
 .pic-question img {
     width: 100%;
-    height: auto;
+    max-height: 290px;
+    height: 100%;
 }
 
 .question-area {
     padding: 0px 14px 0 36px;
     border-right: 4px solid #c9c9c9;
-    min-height: 774px;
+    max-height: 774px;
 }
 
 .question-area .radio-inline {
     display: block;
+    margin-left: 10px;
 }
 
 .toeic-btn {
@@ -224,14 +239,37 @@ p.note {
 @media (max-width:767px) {
     * {
     }
+    body {
+        font-size: 12px;
+    }
 
+    .answer-area {
+        text-align: center;
+    }
+
+    .text-question {
+        font-size: 1em;
+    }
+
+    .black {
+        width: 65%;
+    }
 }
 
 /*may tinh bang*/
 @media (min-width:768px) and (max-width:991px) {
     * {
     }
+    body {
+        font-size: 12px;
+    }
+    .answer-area {
+        text-align: center;
+    }
 
+    .text-question {
+        font-size: 1em;
+    }
 }
 
 /*desktop*/
